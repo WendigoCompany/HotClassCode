@@ -1,6 +1,14 @@
-export default function Card_Desk({ data }) {
-    console.log(data);
 
+import { usePageContent } from "../../Context/page_content";
+
+
+
+
+
+export default function Card_Desk({ data , extra}) {
+
+
+  const { lang }= usePageContent()
     const { gallery,main_img , title, prev } = data;
 
     return <div className="card-container br-sp2">
@@ -17,6 +25,9 @@ export default function Card_Desk({ data }) {
                         <div className="ta-c">
                         <h3 className="btxt btxt-t">{title}</h3>
                         <p className="btxt btxt-p">{prev}</p>
+                        </div>
+                        <div className="ta-c">
+                        <a href="" className="card-a">{lang.more}</a>
                         </div>
                     </td>
                 </tr>

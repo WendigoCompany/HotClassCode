@@ -6,9 +6,9 @@ export const useLang = () => useContext(LangContext);
 
 
 const LangProvider = ({ children }) => {
-    const [lang, useLang] = useState('en');
+    const [lang, setLang] = useState('en');
 
-    return <LangContext.Provider value={{lang , useLang}}>{children}</LangContext.Provider>
+    return <LangContext.Provider value={{lang , setLang}}>{children}</LangContext.Provider>
 }
 
 export default LangProvider

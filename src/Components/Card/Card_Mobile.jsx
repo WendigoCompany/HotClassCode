@@ -1,6 +1,9 @@
-export default function Card_Mobile({ data }) {
-    console.log(data);
+import { usePageContent } from "../../Context/page_content";
 
+
+export default function Card_Mobile({ data , extra }) {
+    
+    const { lang }= usePageContent()
     const { gallery, main_img, title, prev } = data;
 
     return <div className="card-container br-sp2">
@@ -14,31 +17,23 @@ export default function Card_Mobile({ data }) {
                 </tr>
                 <tr style={{ width: "100%" }}>
 
-                <td>
-                <h3 className="btxt btxt-t ta-c">{title}</h3>
-                </td>
-                </tr>
-
-                <tr style={{ width: "100%" }}>
-            <td>
-            <p className="btxt btxt-p ta-c">{prev}</p>
-            </td>
-
-                </tr>
-                {/* <tr>
-                <td style={{width: '35%'}}>
-                
-           
-                <img style={{width: "90%", marginLeft: "2.5%"}} className="br-sp1   " src={gallery[main_img]} alt="" />
-        
+                    <td>
+                        <h3 className="btxt btxt-t ta-c">{title}</h3>
                     </td>
-                    <td style={{width: '65%'}}>
+                </tr>
+                <tr style={{ width: "100%" }}>
+                    <td>
+                        <p className="btxt btxt-p ta-c">{prev}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <div className="ta-c">
-                        <h3 className="btxt btxt-t">{title}</h3>
-                        <p className="btxt btxt-p">{prev}</p>
+                        <a href="" className="card-a">{lang.more}</a>
                         </div>
                     </td>
-                </tr> */}
+                </tr>
+
             </tbody>
         </table>
     </div>

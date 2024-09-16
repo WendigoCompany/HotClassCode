@@ -1,0 +1,50 @@
+.filter-cont{
+    width: 100%;
+    text-align: center;
+    background-color:#ff0a0a62;
+    
+
+}
+
+.filter-l{
+    margin-right:  1.5%;
+}
+
+.filter{
+    text-align: center;
+    color: red;
+    background-color: #000000;
+    border: none;
+}
+
+/* MOB */
+@media (max-width: 769px) {
+  
+    .filter{
+        width: 80%;
+        font-size: 1rem;
+
+       
+    }
+    .filter-cont{
+        padding: 1.5vh 0;
+
+    }
+
+}
+
+/* DESK */
+@media (min-width: 769px) {
+
+    .filter{
+        width: 90%;
+        font-size: 1.3rem;
+
+       
+    }
+    .filter-cont{
+        padding: 2.5vh;
+
+    }
+
+}

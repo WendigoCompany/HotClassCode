@@ -10,7 +10,9 @@
     color: #cffffb;
 }
 
-
+.card-a{
+    color: #cffffb;
+}
 
 @media (max-width: 769px) {
     .btxt-t{
@@ -31,9 +33,11 @@
     .btxt-p{
         padding-top: 10% ;
     }
+    .card-a:hover{
+        color: #50fff0;
+    }
 
     .card-container:hover{
         background-color: #ff333363;
-        cursor: pointer;
     }
 }
