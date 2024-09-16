@@ -1,0 +1,39 @@
+.card-container{
+    background-color: #ffb5b563;
+    padding: 1% 0%;
+    width: 90%;
+    margin-left: 5%;
+    transition: background-color .3s;
+}
+
+.btxt-p , .btxt-t{
+    color: #cffffb;
+}
+
+
+
+@media (max-width: 769px) {
+    .btxt-t{
+        font-size: .9rem ;
+    }
+
+    .btxt-p{
+        font-size: .8rem ;
+    }
+
+    .card-container{
+        background-color: #ff333363;
+    }
+}
+
+
+@media (min-width: 769px) {
+    .btxt-p{
+        padding-top: 10% ;
+    }
+
+    .card-container:hover{
+        background-color: #ff333363;
+        cursor: pointer;
+    }
+}

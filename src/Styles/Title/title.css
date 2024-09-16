@@ -1,0 +1,28 @@
+
+.page-title {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    color: #ec3636;
+}
+
+
+@media (max-width: 769px) {
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    
+}
+
+
+@media (min-width: 769px) {
+
+    .page-title {
+        font-size: 3rem;
+    }
+    
+    
+}

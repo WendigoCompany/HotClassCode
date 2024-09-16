@@ -1,0 +1,58 @@
+.alert-img {
+    width: 20%;
+}
+
+.disclaim {
+    font-size: 3vw;
+}
+
+
+.disc-accept {
+    cursor: pointer;
+    font-size: 3vw;
+    margin: 5vh 0vh 5vh 0vh;
+    transition: background-color .4s, color .4s;
+}
+
+.disc-cancel {
+    cursor: pointer;
+    font-size: 3vw;
+    transition: background-color .4s, color .4s;
+}
+
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .alert-img {
+        width: 50%;
+    }
+    
+    .disclaim{
+        font-size: 5vh;
+    }
+    
+    
+    
+    .disc-accept{
+        font-size: 4vh;
+        margin: 5vh 0vh 5vh 0vh ;
+    }
+    .disc-cancel{
+        font-size: 4vh;
+    }
+
+}
+
+@media (min-width: 769px) {
+    .disc-accept:hover {
+        color: #000000;
+        background-color: #7cda63;
+    }
+    
+    .disc-cancel:hover {
+        color: #000000;
+        background-color: #c62b2b;
+    }
+
+}
