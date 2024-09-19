@@ -14,22 +14,46 @@ export let useRaw
 
 
 const MetaProvider = ({ children, metadata }) => {
-    if (metadata != undefined) {
-    }
-    useQuery = () => {
-        return metadata.data.query
-    }
-    useParam = () => {
-        return metadata.data.param
-    }
-    useData = () => {
-        return { query: metadata.data.query, param: metadata.data.param }
-    }
-    useRaw = () => {
+    // if (metadata != undefined) {
+    // }
+    // useQuery = () => {
+    //     return metadata.data.query
+    // }
+    // useParam = () => {
+    //     return metadata.data.param
+    // }
+    // useData = () => {
+    //     return { query: metadata.data.query, param: metadata.data.param }
+    // }
+    // useRaw = () => {
+    //     return metadata
+
+    // }
+
+
+    const getMetadata = () => {
         return metadata
     }
 
-    return <MetaContext.Provider value={{ meta: metadata }}>{children}</MetaContext.Provider>
+    const getQuery = () => {
+        return metadata.data.query
+    }
+
+
+    const getParam = () => {
+        return metadata.data.param
+    }
+    const getData = () => {
+        return { query: metadata.data.query, param: metadata.data.param }
+    }
+
+
+    return <MetaContext.Provider value={{
+        getMetadata, getQuery,
+        getParam,
+        getData,
+        
+    }}>{children}</MetaContext.Provider>
 }
 
 export default MetaProvider

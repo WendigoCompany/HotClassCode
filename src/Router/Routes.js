@@ -1,5 +1,6 @@
 import Disclaim from "../Pages/Disclaim";
 import Home from "../Pages/Home";
+import Profile from "../Pages/Profile";
 
 
 
@@ -38,7 +39,7 @@ EXAMPLES:
         path: `perro/:id<int>/registro`,
         e: <><Home></Home></>,
     },
-    {
+    { 
         path: `perro/:id<int>/:name<str>`,
         e: <><Kurumi></Kurumi></>,
     },
@@ -48,11 +49,15 @@ EXAMPLES:
 */
 
 
-export const config = new Config({ gh_repo: '/MyGitHubPageRepoName/' });
+export const config = new Config({ gh_repo: '/HotClass/' });
 export default [
     {
         path: `/`,
         e: <Home/>,
+    },
+    {
+        path: `/profile/:id<int>`,
+        e: <Profile/>,
     },
     {
         path: `/disclaim`,

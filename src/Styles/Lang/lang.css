@@ -1,0 +1,15 @@
+.lang-selector {
+    background-color: var(--red);
+    font-size: 1.3rem;
+}
+
+/* MOB */
+@media (max-width: 769px) {
+    .lang-selector {
+        font-size: 1rem;
+    }
+
+}
+
+/* DESK */
+@media (min-width: 769px) {}

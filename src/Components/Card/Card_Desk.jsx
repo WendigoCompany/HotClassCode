@@ -1,5 +1,6 @@
 
 import { usePageContent } from "../../Context/page_content";
+import { config } from "../../Router/Routes";
 
 
 
@@ -9,7 +10,11 @@ export default function Card_Desk({ data , extra}) {
 
 
   const { lang }= usePageContent()
-    const { gallery,main_img , title, prev } = data;
+    const { gallery,main_img , title, prev , id } = data;
+    let url = '';
+    if(process.env.REACT_APP_STADE == "gh"){
+        url += "#" +config.gh_repo 
+    }
 
     return <div className="card-container br-sp2">
         <table>
@@ -27,7 +32,11 @@ export default function Card_Desk({ data , extra}) {
                         <p className="btxt btxt-p">{prev}</p>
                         </div>
                         <div className="ta-c">
-                        <a href="" className="card-a">{lang.more}</a>
+                        {/* <a href={ url+`/profile/${id}`} className="card-a">{lang.more}</a> */}
+                        <button onClick={()=>{
+                            window.location.href =`profile/${id}` ;
+                            // window.location.reload()
+                        }}>{lang.more}</button>
                         </div>
                     </td>
                 </tr>

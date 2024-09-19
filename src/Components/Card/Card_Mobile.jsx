@@ -4,7 +4,7 @@ import { usePageContent } from "../../Context/page_content";
 export default function Card_Mobile({ data , extra }) {
     
     const { lang }= usePageContent()
-    const { gallery, main_img, title, prev } = data;
+    const { gallery, main_img, title, prev , id } = data;
 
     return <div className="card-container br-sp2">
         <table>
@@ -29,7 +29,7 @@ export default function Card_Mobile({ data , extra }) {
                 <tr>
                     <td>
                         <div className="ta-c">
-                        <a href="" className="card-a">{lang.more}</a>
+                        <a href={`/profile/${id}`} className="card-a">{lang.more}</a>
                         </div>
                     </td>
                 </tr>

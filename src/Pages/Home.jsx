@@ -2,6 +2,7 @@ import Filter from "../Components/Filter/Filter";
 import Paginator from "../Components/Paginator/Paginator";
 import "../Styles/Home/manifiest.css";
 import en from "../DB/manifiest.en.json"
+import es from "../DB/manifiest.es.json"
 import Card_Desk from "../Components/Card/Card_Desk";
 import { useLang } from "../Context/lang_context";
 import { useDevice } from "../Context/is_mobile";
@@ -20,7 +21,7 @@ const langs = {
 };
 
 
-const girls = { en };
+const girls = { en , es};
 
 
 
@@ -34,10 +35,6 @@ export default function Home() {
     const { device } = useDevice();
 
 
-    // useEffect(()=>{
-
-    //     async_load_by_id({value: girls['en'][0].description , element: 'p' , property: "innerHTML"})
-    // },[])
 
 
 
