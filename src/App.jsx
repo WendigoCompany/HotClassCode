@@ -6,7 +6,6 @@ import "./Styles/main.css"
 
 export default function App() {
 
-
     // alert(process.env.REACT_APP_STADE)
 
     return <>

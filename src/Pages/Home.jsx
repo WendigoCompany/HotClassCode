@@ -1,4 +1,3 @@
-import Filter from "../Components/Filter/Filter";
 import Paginator from "../Components/Paginator/Paginator";
 import "../Styles/Home/manifiest.css";
 import en from "../DB/manifiest.en.json"
@@ -14,6 +13,8 @@ import en_page from "../Lang/en/home.json"
 import es_page from "../Lang/es/home.json"
 import PageContentProviver from "../Context/page_content";
 import LangSelector from "../Components/LangSelector/LangSelector";
+import SearchBar from "../Components/Filter/Filter";
+import { useState } from "react";
 
 const langs = {
     es: es_page,
@@ -31,22 +32,30 @@ const girls = { en , es};
 export default function Home() {
 
     const { lang  } = useLang();
-    const girls_data = girls[lang];
+    // const girls_data = girls[lang];
     const { device } = useDevice();
+  
+    const [girls_data, setGirlsData] = useState(girls[lang]);
 
 
-
-
+    
 
     return <>
         <PageContentProviver lang={langs[lang]}>
             <LangSelector/>
             <Title />
-            <Filter />
+            {/* <Filter /> */}
+            <SearchBar items={girls[lang][0].tags} action={(filter)=>{
+                console.log(filter);
+                
+                const newGirls = girls[lang].filter(gl => gl.tags.indexOf(filter) != -1);
+           
+                setGirlsData(newGirls)
+            }}/>
             <h3 id="p" style={{ color: "green" }}></h3>
             <div className="background"></div>
             {
-                (device == 'desk') ? (<Card_Desk data={girls_data[0]} />) : (<Card_Mobile data={girls_data[0]} />)
+                (device == 'desk') ? (girls_data.map(gl => <Card_Desk data={gl} />)) : (girls_data.map(gl => <Card_Mobile data={gl} />))
             }
             <Paginator />
         </PageContentProviver>

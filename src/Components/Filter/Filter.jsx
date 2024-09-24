@@ -1,47 +1,80 @@
-import {Filter_Func} from "./filter_system.js"
+import React, { useState } from 'react';
 import "../../Styles/Filter/manifiest.css"
-import { useLang } from "../../Context/lang_context";
-import { usePageContent } from "../../Context/page_content.jsx";
-import girls from "../../DB/manifiest.en.json"
 
+window.addEventListener('click',(e)=>{
 
-
-
-export default function Filter({extra}) {
-    const { lang }= usePageContent()
-    
-    const build_droplist =()=>{
-        let options = [];
-        
-        girls.map(g => g.tags.map(t => (options.indexOf(t) == -1) ? (options.push(t)) : ("")))
-        options = options.map(t =>  <option value={t}>{t}</option> )
-        
-        return options
-        
-    }
-
-    return <>
-        <div className="filter-cont">
-            <label htmlFor="" className="btxt-p btxt filter-l">{lang.search}</label>
-            <input type="text" className="filter" onInput={Filter_Func} />
-            <br />
-            <select 
-            name="select1" 
-            onMouseDown={(e) => {
-                const target = e.target; // Capturamos el objetivo del evento
-                if (target.options && target.options.length > 8) {
-                    target.size = 8; // Ajusta el tamaño si hay más de 8 opciones
-                }
-            }}
-            onChange={(e)=>{
-                // e.target.size = 1; 
-            }}
-            onBlur={(e) => { e.target.size = 1; }}
-             id="droplist">
-        {build_droplist()}           
+  if(!Array.isArray(e.target.classList) ){
+    method_setSuggestions([])
+  }else if(e.target.classList.indexOf('fdl') == -1){
+    method_setSuggestions([])
+  }
   
-            </select>
-        </div>
-    </>
+})
 
-}
+let method_setSuggestions
+
+const SearchBar = ({ items, maxSuggestions = 5 , action }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+  method_setSuggestions = setSuggestions;
+  const handleChange = (event) => {
+    const value = event.target.value;
+ 
+    setSearchTerm(value);
+
+    // Filtrar las sugerencias
+    if (value) {
+      const filteredSuggestions = items.filter(item =>
+        item.toLowerCase().includes(value.toLowerCase())
+      ).slice(0, maxSuggestions); // Limitar el número de sugerencias
+      setSuggestions(filteredSuggestions);
+    } else {
+      setSuggestions([]);
+    }
+    action(value)
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    action(suggestion)
+    setSearchTerm(suggestion);
+    setSuggestions([]);
+  };
+
+  return (
+    <div className='filter-cont'>
+      <input
+        className='filter'
+        type="text"
+        placeholder="Buscar..."
+        value={searchTerm}
+        onChange={handleChange}
+      // style={{ padding: '8px',width: '100%',  }}
+      />
+      {suggestions.length > 0 && (
+    
+          <ul className='filter-dl fdl'>
+            {suggestions.map((suggestion, index) => (
+              <li
+                key={index}
+                className='fdl'
+                onClick={() => handleSuggestionClick(suggestion)}
+                style={{
+                  padding: '8px',
+                  cursor: 'pointer',
+                  backgroundColor: '#fff',
+                  borderBottom: '1px solid #ccc'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f0f0f0'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#fff'}
+              >
+                {suggestion}
+              </li>
+            ))}
+          </ul>
+   
+      )}
+    </div>
+  );
+};
+
+export default SearchBar;
