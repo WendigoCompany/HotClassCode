@@ -1,5 +1,4 @@
 import Paginator from "../Components/Paginator/Paginator";
-import "../Styles/Home/manifiest.css";
 import en from "../DB/manifiest.en.json"
 import es from "../DB/manifiest.es.json"
 import Card_Desk from "../Components/Card/Card_Desk";
@@ -15,6 +14,8 @@ import PageContentProviver from "../Context/page_content";
 import LangSelector from "../Components/LangSelector/LangSelector";
 import SearchBar from "../Components/Filter/Filter";
 import { useState } from "react";
+import "../Styles/Home/manifiest.css";
+import Background from "../Components/Background";
 
 const langs = {
     es: es_page,
@@ -22,7 +23,7 @@ const langs = {
 };
 
 
-const girls = { en , es};
+const girls = { en, es };
 
 
 
@@ -31,33 +32,33 @@ const girls = { en , es};
 
 export default function Home() {
 
-    const { lang  } = useLang();
+    const { lang } = useLang();
     // const girls_data = girls[lang];
     const { device } = useDevice();
-  
+
     const [girls_data, setGirlsData] = useState(girls[lang]);
 
+    const [actual_page, setActualPage] = useState(0);
 
-    
+    const ppage = 5;
 
     return <>
         <PageContentProviver lang={langs[lang]}>
-            <LangSelector/>
+            <LangSelector />
             <Title />
             {/* <Filter /> */}
-            <SearchBar items={girls[lang][0].tags} action={(filter)=>{
+            <SearchBar items={girls[lang][0].tags} action={(filter) => {
                 console.log(filter);
-                
+
                 const newGirls = girls[lang].filter(gl => gl.tags.indexOf(filter) != -1);
-           
+
                 setGirlsData(newGirls)
-            }}/>
-            <h3 id="p" style={{ color: "green" }}></h3>
-            <div className="background"></div>
+            }} />
+            <Background />
             {
-                (device == 'desk') ? (girls_data.map(gl => <Card_Desk data={gl} />)) : (girls_data.map(gl => <Card_Mobile data={gl} />))
+                (device == 'desk') ? (girls_data.slice(ppage * actual_page, ppage * (actual_page + 1)).map(gl => <Card_Desk data={gl} />)) : (girls_data.slice(ppage * actual_page, ppage * (actual_page + 1)).map(gl => <Card_Mobile data={gl} />))
             }
-            <Paginator />
+            <Paginator actual_page={actual_page} pages={Math.ceil(girls_data.length / ppage)} />
         </PageContentProviver>
     </>
 }

@@ -29,7 +29,10 @@ export default function Card_Mobile({ data , extra }) {
                 <tr>
                     <td>
                         <div className="ta-c">
-                        <a href={`/profile/${id}`} className="card-a">{lang.more}</a>
+                        <button onClick={()=>{
+                            window.location.href =`profile/${id}` ;
+                            // window.location.reload()
+                        }}>{lang.more}</button>
                         </div>
                     </td>
                 </tr>

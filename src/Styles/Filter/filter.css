@@ -67,5 +67,11 @@
         padding: 2.5vh;
 
     }
+    .filter-dl{
+        font-size: 1rem;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: .5%;
+    }
 
 }
