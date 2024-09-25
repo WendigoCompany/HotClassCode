@@ -13,6 +13,9 @@ import { useRMeta } from "../Router/MetaContext";
 
 
 import "../Styles/Profile/manifiest.css";
+import Description_Profile from "./Description";
+import { useState } from "react";
+import PreviewProfile from "./Preview";
 
 const girls = { en, es };
 
@@ -21,7 +24,7 @@ const girls = { en, es };
 export default function Profile() {
     const { lang } = useLang();
     const { device } = useDevice();
-    
+    const [preview, setPreview] = useState(null);
     let girl_data
     /* eslint-disable */
     try {
@@ -29,7 +32,7 @@ export default function Profile() {
         const { id } = getParam();
         girl_data = girls[lang][id];
         console.log(girl_data);
-        
+
 
     } catch (error) {
         console.log(error);
@@ -44,13 +47,14 @@ export default function Profile() {
                     <LangSelector />
                     <Title />
                     <Background />
+                    <Subtitle stitle={[girl_data["fname"], girl_data["title"]]} img={girl_data["gallery"][girl_data["main_img"]]} />
+                    <Description_Profile setter={setPreview} txt={girl_data["description"]} gallery={girl_data["gallery"]} />
                     {
-                        // device == 'mob'
-                        // ?<Subtitle_M stitle={[girl_data["fname"],girl_data["title"]]} img={girl_data["gallery"][girl_data["main_img"]]}/>
-                        // :<Subtitle_D stitle={[girl_data["fname"],girl_data["title"]]} img={girl_data["gallery"][girl_data["main_img"]]}/>
+                        preview
+                        ? <PreviewProfile preview={preview}/>
+                        : ""
                     }
-                    <Subtitle stitle={[girl_data["fname"],girl_data["title"]]} img={girl_data["gallery"][girl_data["main_img"]]}/>
-                {/* <Subtitle stitle={`${girl_data["fname"]}~~~~${girl_data["title"]}`}/> */}
+                    
                 </>
 
 
