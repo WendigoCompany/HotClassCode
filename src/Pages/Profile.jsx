@@ -51,7 +51,7 @@ export default function Profile() {
                     <Description_Profile setter={setPreview} txt={girl_data["description"]} gallery={girl_data["gallery"]} />
                     {
                         preview
-                        ? <PreviewProfile preview={preview}/>
+                        ? <PreviewProfile  setter={setPreview} preview={preview}/>
                         : ""
                     }
                     

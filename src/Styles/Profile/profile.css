@@ -11,10 +11,46 @@
     color: red;
 }
 
+.st-prof .tr1 {
+    width: 100%;
+}
+
+.pr-cont{
+    position: fixed;
+    background-color: #00000049;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.pr-cont img{
+    width: 90%;
+    margin-top: 1%;
+
+
+}
+
+.pr-btn{
+    position: fixed;
+    border: black;
+    background-color: #a00c0c;
+    cursor: pointer;
+    padding: .5%;
+}
+.pr-btn svg{
+    width: 100%;
+}
+
+.pr-btn:hover{
+
+    background-color: #ff0000;
+}
+
 @media (max-width: 769px) {
 
     .st-prof .tr1 {
-        width: 100%;
         font-size: 1.5rem;
     }
 
@@ -55,14 +91,16 @@
 
     }
 
+.pr-cont{
+    height: 100%;
 
+}
 
 }
 
 /* DESK */
 @media (min-width: 769px) {
     .st-prof .tr1 {
-        width: 100%;
         font-size: 3rem;
     }
 
