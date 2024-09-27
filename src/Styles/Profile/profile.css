@@ -15,7 +15,7 @@
     width: 100%;
 }
 
-.pr-cont{
+.pr-cont {
     position: fixed;
     background-color: #00000049;
     top: 0%;
@@ -25,25 +25,26 @@
     text-align: center;
 }
 
-.pr-cont img{
+.pr-cont img {
     width: 90%;
     margin-top: 1%;
 
 
 }
 
-.pr-btn{
+.pr-btn {
     position: fixed;
     border: black;
     background-color: #a00c0c;
     cursor: pointer;
     padding: .5%;
 }
-.pr-btn svg{
+
+.pr-btn svg {
     width: 100%;
 }
 
-.pr-btn:hover{
+.pr-btn:hover {
 
     background-color: #ff0000;
 }
@@ -91,11 +92,16 @@
 
     }
 
-.pr-cont{
-    height: 100%;
+    .pr-cont {
+        width: 90%;
+    }
 
-}
-
+    .pr-cont img {
+        position: fixed;
+        top: 9%;
+        left: 0%;
+        width: 100%;
+    }
 }
 
 /* DESK */
