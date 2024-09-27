@@ -1,0 +1,24 @@
+@import url("./Modal/ChatModal/chat-modal.css");
+
+.chat-btn {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+ 
+}
+
+.chat-btn button {
+    cursor: pointer;
+    border-radius: 5%;
+    transition: background-color .3s;
+}
+
+/* MOB */
+@media (max-width: 769px) {}
+
+/* DESK */
+@media (min-width: 769px) {
+    .chat-btn button:hover {
+        background-color: #f83131;
+    }
+}

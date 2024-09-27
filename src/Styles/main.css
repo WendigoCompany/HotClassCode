@@ -215,3 +215,28 @@ margin-bottom: 100%;
 .mb-0{
     margin-bottom: 0%;    
 }
+
+
+.close-btn{
+    background-color: #c62b2b;
+    transition: .3s;
+    cursor: pointer;
+}
+
+
+
+
+
+/* MOB */
+@media (max-width: 769px) {
+
+}
+
+/* DESK */
+@media (min-width: 769px) {
+
+    .close-btn:hover{
+        background-color: #f02c2c;
+    }
+    
+}

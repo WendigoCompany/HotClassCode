@@ -16,6 +16,7 @@ import "../Styles/Profile/manifiest.css";
 import Description_Profile from "./Description";
 import { useState } from "react";
 import PreviewProfile from "./Preview";
+import Chat from "../Components/Chat/Chat";
 
 const girls = { en, es };
 
@@ -45,6 +46,7 @@ export default function Profile() {
             (girl_data) ? (
                 <>
                     <LangSelector />
+                    <Chat/>
                     <Title />
                     <Background />
                     <Subtitle stitle={[girl_data["fname"], girl_data["title"]]} img={girl_data["gallery"][girl_data["main_img"]]} />

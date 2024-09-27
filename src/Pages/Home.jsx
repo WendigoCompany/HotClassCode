@@ -16,6 +16,7 @@ import SearchBar from "../Components/Filter/Filter";
 import { useState } from "react";
 import "../Styles/Home/manifiest.css";
 import Background from "../Components/Background";
+import Chat from "../Components/Chat/Chat";
 
 const langs = {
     es: es_page,
@@ -46,6 +47,7 @@ export default function Home() {
         <PageContentProviver lang={langs[lang]}>
             <LangSelector />
             <Title />
+            <Chat/>
             {/* <Filter /> */}
             <SearchBar items={girls[lang][0].tags} action={(filter) => {
                 console.log(filter);
