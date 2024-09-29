@@ -3,24 +3,12 @@
 
 
 .ch-modal {
-    position: fixed;
-    border: 2px solid red;
-    background-color: #000000dc;
     width: 95%;
     height: 95%;
     top: 1%;
     left: 1%;
 }
 
-.modal-bg {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    background-color: #0000005b;
-    width: 100%;
-    height: 100%;
-    z-index: 999999999;
-}
 
 .ch-dial-box{
     width: 95%;
@@ -31,8 +19,8 @@
 
 .ch-list{
     width: 95%;
-    margin-top: 2.5%;
-    height: 13%;
+    margin-top: 1.5%;
+    height: 11%;
     background-color: #3f3f3fbd;
     margin-left: calc(5% / 2);
 }
@@ -41,10 +29,19 @@
 @media (max-width: 769px) {
     .ch-modal {
         width: 90%;
-        height: 90%;
+        height: 85%;
         top: 3%;
-        left: 1%;
+        left: 2%;
     }
+
+    .ch-list{
+        width: 95%;
+        margin-top: 2%;
+        height: 13%;
+        background-color: #3f3f3fbd;
+        margin-left: calc(5% / 2);
+    }
+    
     
 }
 
@@ -54,20 +51,3 @@
 }
 
 
-/* MOB */
-@media (max-width: 769px) {
-    .modal-bg {
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        background-color: #0000005b;
-        width: 100%;
-        height: 100%;
-        z-index: 999999999;
-    }
-}
-
-/* DESK */
-@media (min-width: 769px) {
-
-}
