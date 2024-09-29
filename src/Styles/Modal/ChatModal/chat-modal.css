@@ -1,6 +1,9 @@
 @import url("../modal-basic.css");
 
-
+body{
+    overflow-x: hidden; /* Permite el desplazamiento horizontal */
+    overflow-y: hidden; /* Permite el desplazamiento horizontal */
+}
 
 .ch-modal {
     width: 95%;
@@ -42,6 +45,31 @@
     background-position: center;
 }
 
+.ask-btn{
+    margin-top: .5%;
+    margin-left: .5%;
+    font-size: 1rem;
+}
+
+.ask-modal{
+    background-color: #000000;
+    border: 2px solid red;
+    z-index: 250000;
+    position: fixed;
+
+}
+
+.ask-q{
+    background-color: #3f3f3fbd;
+    width: 95%;
+    overflow-y: auto; /* Permite el desplazamiento horizontal */
+    overflow-x: hidden; /* Permite el desplazamiento horizontal */
+    margin-top: 5%;
+    margin-left: 2.5%;
+    height: 75vh;
+}
+
+
 /* MOB */
 @media (max-width: 769px) {
     .ch-modal {
@@ -58,20 +86,50 @@
         background-color: #3f3f3fbd;
         margin-left: calc(5% / 2);
     }
-    .container::-webkit-scrollbar {
+    .container::-webkit-scrollbar , .ask-q::-webkit-scrollbar {
         width: 8px; /* Ancho de la barra de desplazamiento */
         height: 8px;
     }
     
-    .container::-webkit-scrollbar-thumb {
+    .container::-webkit-scrollbar-thumb , .ask-q::-webkit-scrollbar-thumb {
         background-color: #888; /* Color de la barra de desplazamiento */
         border-radius: 10px; /* Bordes redondeados de la barra de desplazamiento */
     }
     
-    .container::-webkit-scrollbar-thumb:hover {
+    .container::-webkit-scrollbar-thumb:hover , .ask-q::-webkit-scrollbar-thumb:hover {
         background-color: #555; /* Color al pasar el ratón sobre la barra */
     }
+
+
     
+    
+    .ask-modal{
+        width: 93%;
+        height: 80%;
+
+        top: 5%;
+        left: 0%;
+
+    }
+
+    .ask-q{
+        background-color: #3f3f3fbd;
+        width: 95%;
+        overflow-y: auto; /* Permite el desplazamiento horizontal */
+        overflow-x: hidden; /* Permite el desplazamiento horizontal */
+        margin-top: 5%;
+        margin-left: 2.5%;
+        height: 75vh;
+    }
+    .ask-q button{
+        display: block;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 1%;
+        font-size: 1rem;
+    }
+        
+
     
 }
 
