@@ -23,6 +23,23 @@
     height: 11%;
     background-color: #3f3f3fbd;
     margin-left: calc(5% / 2);
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    overflow-y: hidden; /* Permite el desplazamiento horizontal */
+    white-space: nowrap; /* Asegura que los elementos se alineen en una sola línea */
+}
+
+
+.chat-list-g{
+    display: inline-block; 
+    margin-left: .5%; /* Espacio entre los items */
+    text-align: center; /* Centra el texto horizontalmente */
+    height: 95%;
+    width:  100px;
+    border: 1px solid red;
+    border-radius: 50%;
+    background-color: transparent; /* Color de fondo de los items */
+    background-size: cover;
+    background-position: center;
 }
 
 /* MOB */
@@ -41,13 +58,34 @@
         background-color: #3f3f3fbd;
         margin-left: calc(5% / 2);
     }
+    .container::-webkit-scrollbar {
+        width: 8px; /* Ancho de la barra de desplazamiento */
+        height: 8px;
+    }
+    
+    .container::-webkit-scrollbar-thumb {
+        background-color: #888; /* Color de la barra de desplazamiento */
+        border-radius: 10px; /* Bordes redondeados de la barra de desplazamiento */
+    }
+    
+    .container::-webkit-scrollbar-thumb:hover {
+        background-color: #555; /* Color al pasar el ratón sobre la barra */
+    }
     
     
 }
 
 /* DESK */
 @media (min-width: 769px) {
+    .chat-list-g{
+        cursor: pointer;
+        filter: brightness(50%);
+        transition: filter .3s;
+    }
 
+    .chat-list-g:hover{
+        cursor: pointer;
+        filter: brightness(100%);
+    }
 }
-
 

@@ -47,7 +47,9 @@ export default function Home() {
         <PageContentProviver lang={langs[lang]}>
             <LangSelector />
             <Title />
-            <Chat/>
+            <PageContentProviver girls={girls[lang]}>
+                <Chat />
+            </PageContentProviver>
             {/* <Filter /> */}
             <SearchBar items={girls[lang][0].tags} action={(filter) => {
                 console.log(filter);
