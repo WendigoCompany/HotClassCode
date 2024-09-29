@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { usePageContent } from "../../Context/page_content";
+import AskChat from "./AskChat";
 
 export default function ChatModal({ setter }) {
 
     const { girls } = usePageContent();
 
-    const HandleChat=(e, girl)=>{
-        console.log(girl);
+    const [girl , setGirl ] = useState(null);
+
+    const HandleChat =(e,g)=>{
+        setGirl(g)
     }
     return <>
         <div className="modal-bg">
@@ -17,7 +21,8 @@ export default function ChatModal({ setter }) {
                 </div>
 
                 <div className="ch-dial-box">
-
+                    <label htmlFor="">asdasd</label>
+                <AskChat girl={girl}/>
                 </div>
 
                 <div className="ch-list">
