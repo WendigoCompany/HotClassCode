@@ -7,7 +7,8 @@ export default function AskModal({ setAskModal }) {
     const { girl } = useGirl();
     const { lang } = useLang();
     const { setMsj } = useMsj();
-
+    console.log(lang);
+    
     return <>
         <div className="ask-modal">
             <div>
@@ -16,7 +17,14 @@ export default function AskModal({ setAskModal }) {
                 </button>
                 <h1 className="page-title ask-title" >QUESTIONS</h1>
                 <div className="ask-q">
-                    <button className="close-btn">asdas</button>
+                    
+
+                    {questions.map(q => <button
+                    onClick={()=>{
+                        setMsj(q.id)
+                        setAskModal(null)
+                    }}
+                    className="close-btn">{q[lang].toUpperCase()}</button>)}
 
 
                 </div>

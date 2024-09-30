@@ -11,7 +11,7 @@ export default function AskChat({ }) {
     return <>
         <button disabled={girl == null} onClick={() => {
             setAskModal(<AskModal  setAskModal={setAskModal} />)
-        }} className="ask-btn close-btn">
+        }} className="ask-btn close-btn" id="ask-btn">
             ASK
         </button>
         {askModal}

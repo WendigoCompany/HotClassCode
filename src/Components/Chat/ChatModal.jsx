@@ -40,7 +40,7 @@ export default function ChatModal({ setter }) {
 
 
     
-    const [msj, setMsj] = useState(null);
+    const [msj, setMsj] = useState(-1);
     const HandleChat = (e, g) => {
         setGirl(g)
     }

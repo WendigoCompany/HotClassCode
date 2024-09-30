@@ -240,3 +240,11 @@ margin-bottom: 100%;
     }
     
 }
+
+
+button{
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}

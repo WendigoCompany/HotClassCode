@@ -85,6 +85,12 @@ body {
     margin: 0;
 }
 
+#chat-label{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    color: #dadada;
+}
+
 .chat-img{
     cursor: default !important;
     filter:  brightness(100%) !important;
@@ -154,7 +160,10 @@ body {
         height: 10vh;
     }
 
-
+    #chat-label{
+        color: #dadada;
+    }
+    
 }
 
 /* DESK */
@@ -193,5 +202,9 @@ body {
         height: 10vh;
         cursor: default;
     }
+    #chat-label{
+        margin-left: .5%;
+    }
+    
 }
 

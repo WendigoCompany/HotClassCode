@@ -38,7 +38,8 @@
         ],
         "main_img": 5,
         "chat": [
-            {}
+            {"id": -1, "t": "Good day... "},
+            {"id": 0, "t": "FINE! "}
         ]
     }
 ]
