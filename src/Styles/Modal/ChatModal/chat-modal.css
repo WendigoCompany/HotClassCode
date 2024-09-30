@@ -1,8 +1,10 @@
 @import url("../modal-basic.css");
 
-body{
-    overflow-x: hidden; /* Permite el desplazamiento horizontal */
-    overflow-y: hidden; /* Permite el desplazamiento horizontal */
+body {
+    overflow-x: hidden;
+    /* Permite el desplazamiento horizontal */
+    overflow-y: hidden;
+    /* Permite el desplazamiento horizontal */
 }
 
 .ch-modal {
@@ -13,45 +15,51 @@ body{
 }
 
 
-.ch-dial-box{
+.ch-dial-box {
     width: 95%;
     margin-left: calc(5% / 2);
     height: 80%;
     background-color: #3f3f3fbd;
 }
 
-.ch-list{
+.ch-list {
     width: 95%;
     margin-top: 1.5%;
     height: 11%;
     background-color: #3f3f3fbd;
     margin-left: calc(5% / 2);
-    overflow-x: auto; /* Permite el desplazamiento horizontal */
-    overflow-y: hidden; /* Permite el desplazamiento horizontal */
-    white-space: nowrap; /* Asegura que los elementos se alineen en una sola línea */
+    overflow-x: auto;
+    /* Permite el desplazamiento horizontal */
+    overflow-y: hidden;
+    /* Permite el desplazamiento horizontal */
+    white-space: nowrap;
+    /* Asegura que los elementos se alineen en una sola línea */
 }
 
 
-.chat-list-g{
-    display: inline-block; 
-    margin-left: .5%; /* Espacio entre los items */
-    text-align: center; /* Centra el texto horizontalmente */
+.chat-list-g {
+    display: inline-block;
+    margin-left: .5%;
+    /* Espacio entre los items */
+    text-align: center;
+    /* Centra el texto horizontalmente */
     height: 95%;
-    width:  100px;
+    width: 100px;
     border: 1px solid red;
     border-radius: 50%;
-    background-color: transparent; /* Color de fondo de los items */
+    background-color: transparent;
+    /* Color de fondo de los items */
     background-size: cover;
     background-position: center;
 }
 
-.ask-btn{
+.ask-btn {
     margin-top: .5%;
     margin-left: .5%;
     font-size: 1rem;
 }
 
-.ask-modal{
+.ask-modal {
     background-color: #000000;
     border: 2px solid red;
     z-index: 250000;
@@ -59,17 +67,28 @@ body{
 
 }
 
-.ask-q{
+.ask-q {
     background-color: #3f3f3fbd;
-    width: 95%;
-    overflow-y: auto; /* Permite el desplazamiento horizontal */
-    overflow-x: hidden; /* Permite el desplazamiento horizontal */
-    margin-top: 5%;
-    margin-left: 2.5%;
-    height: 75vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+}
+.ask-q button {
+    display: block;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 1%;
 }
 
 
+.ask-title{
+    margin: 0;
+}
+
+.chat-img{
+    cursor: default !important;
+    filter:  brightness(100%) !important;
+}
 /* MOB */
 @media (max-width: 769px) {
     .ch-modal {
@@ -79,71 +98,100 @@ body{
         left: 2%;
     }
 
-    .ch-list{
+    .ch-list {
         width: 95%;
         margin-top: 2%;
         height: 13%;
         background-color: #3f3f3fbd;
         margin-left: calc(5% / 2);
     }
-    .container::-webkit-scrollbar , .ask-q::-webkit-scrollbar {
-        width: 8px; /* Ancho de la barra de desplazamiento */
+
+    .container::-webkit-scrollbar,
+    .ask-q::-webkit-scrollbar {
+        width: 8px;
+        /* Ancho de la barra de desplazamiento */
         height: 8px;
     }
-    
-    .container::-webkit-scrollbar-thumb , .ask-q::-webkit-scrollbar-thumb {
-        background-color: #888; /* Color de la barra de desplazamiento */
-        border-radius: 10px; /* Bordes redondeados de la barra de desplazamiento */
+
+    .container::-webkit-scrollbar-thumb,
+    .ask-q::-webkit-scrollbar-thumb {
+        background-color: #888;
+        /* Color de la barra de desplazamiento */
+        border-radius: 10px;
+        /* Bordes redondeados de la barra de desplazamiento */
     }
-    
-    .container::-webkit-scrollbar-thumb:hover , .ask-q::-webkit-scrollbar-thumb:hover {
-        background-color: #555; /* Color al pasar el ratón sobre la barra */
+
+    .container::-webkit-scrollbar-thumb:hover,
+    .ask-q::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+        /* Color al pasar el ratón sobre la barra */
     }
 
 
-    
-    
-    .ask-modal{
+
+
+    .ask-modal {
         width: 93%;
         height: 80%;
-
-        top: 5%;
-        left: 0%;
+        top: 7%;
+        left:2%;
 
     }
 
-    .ask-q{
-        background-color: #3f3f3fbd;
+    .ask-q {
         width: 95%;
-        overflow-y: auto; /* Permite el desplazamiento horizontal */
-        overflow-x: hidden; /* Permite el desplazamiento horizontal */
         margin-top: 5%;
         margin-left: 2.5%;
-        height: 75vh;
+        height: 65vh;
     }
-    .ask-q button{
-        display: block;
-        width: 90%;
-        margin-left: 5%;
-        margin-top: 1%;
+
+    .ask-q button {
         font-size: 1rem;
     }
-        
 
-    
+    .chat-img{
+        width: 30%;
+        height: 10vh;
+    }
+
+
 }
 
 /* DESK */
 @media (min-width: 769px) {
-    .chat-list-g{
+    .chat-list-g {
         cursor: pointer;
         filter: brightness(50%);
         transition: filter .3s;
     }
 
-    .chat-list-g:hover{
+    .chat-list-g:hover {
         cursor: pointer;
         filter: brightness(100%);
+    }
+
+    .ask-modal {
+        width: 40%;
+        height: 85%;
+        margin-left: 20%;
+    }
+
+
+    .ask-q {
+        width: 95%;
+        margin-top: 5%;
+        margin-left: 2.5%;
+        height: 65vh;
+    }
+
+
+    .ask-q button {
+        font-size: 1.5rem;
+    }
+    .chat-img{
+        width: 8%;
+        height: 10vh;
+        cursor: default;
     }
 }
 

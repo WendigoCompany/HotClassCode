@@ -1,6 +1,36 @@
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { usePageContent } from "../../Context/page_content";
 import AskChat from "./AskChat";
+import ChatMsj from "./ChatMsj";
+
+
+
+
+
+export const GirlContext = createContext();
+export const useGirl = () => useContext(GirlContext);
+
+
+
+const GirlProvider = ({ children, ...params}) => {
+    return <GirlContext.Provider value={{ ...params }}>{children}</GirlContext.Provider>
+}
+
+
+export const MsjContext = createContext();
+export const useMsj = () => useContext(MsjContext);
+
+
+
+const MsjProvider = ({ children, ...params }) => {
+    return <MsjContext.Provider value={{ ...params }}>{children}</MsjContext.Provider>
+}
+
+
+
+
+
+
 
 export default function ChatModal({ setter }) {
 
@@ -8,6 +38,9 @@ export default function ChatModal({ setter }) {
 
     const [girl, setGirl] = useState(null);
 
+
+    
+    const [msj, setMsj] = useState(null);
     const HandleChat = (e, g) => {
         setGirl(g)
     }
@@ -30,8 +63,16 @@ export default function ChatModal({ setter }) {
                 </div>
 
                 <div className="ch-dial-box">
-
-                    <AskChat girl={girl} />
+                    <MsjProvider msj={msj} setMsj={setMsj}>
+                        <GirlProvider girl={girl} setGirl={setGirl}>
+                            <AskChat />
+                        {
+                            girl 
+                            ?     <ChatMsj />
+                            : ""
+                        }
+                        </GirlProvider>
+                    </MsjProvider>
                 </div>
 
                 <div className="ch-list">

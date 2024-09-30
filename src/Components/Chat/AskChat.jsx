@@ -1,11 +1,16 @@
 import { useState } from "react";
 import AskModal from "./AskModal";
+import { useGirl } from "./ChatModal";
 
-export default function AskChat({ girl }) {
+export default function AskChat({ }) {
+    const {girl} = useGirl();
     const [askModal, setAskModal] = useState(null);
+
+
+
     return <>
         <button disabled={girl == null} onClick={() => {
-            setAskModal(<AskModal setter={setAskModal} />)
+            setAskModal(<AskModal  setAskModal={setAskModal} />)
         }} className="ask-btn close-btn">
             ASK
         </button>
