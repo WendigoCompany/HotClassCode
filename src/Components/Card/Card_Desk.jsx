@@ -13,7 +13,7 @@ export default function Card_Desk({ data , extra}) {
     const { gallery,main_img , title, prev , id } = data;
     let url = '';
     if(process.env.REACT_APP_STADE == "gh"){
-        url += "#" +config.gh_repo 
+        url += config.gh_repo  +"#"
     }
 
     return <div className="card-container br-sp2">

@@ -1,11 +1,5 @@
 @import url("../modal-basic.css");
 
-body {
-    overflow-x: hidden;
-    /* Permite el desplazamiento horizontal */
-    overflow-y: hidden;
-    /* Permite el desplazamiento horizontal */
-}
 
 .ch-modal {
     width: 95%;
@@ -95,6 +89,20 @@ body {
     cursor: default !important;
     filter:  brightness(100%) !important;
 }
+
+.chat-btn-profile{
+    display: inline-block !important;
+    position: static !important;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    margin-top: 3%;
+    width: 90% !important;
+    text-align: center;
+}
+.chat-btn-profile button{
+    width: 60%;
+}
+
 /* MOB */
 @media (max-width: 769px) {
     .ch-modal {

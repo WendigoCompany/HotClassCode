@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import "../../Styles/Filter/manifiest.css"
+import { usePageContent } from '../../Context/page_content';
+import Capitalizate from '../../Utils/capitalizate';
 
 window.addEventListener('click', (e) => {
   if (typeof method_setSuggestions == "function") {
@@ -19,9 +21,12 @@ const SearchBar = ({ items, maxSuggestions = 5, action }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   method_setSuggestions = setSuggestions;
+  const {lang} = usePageContent();
+  console.log(lang);
+  
   const handleChange = (event) => {
     const value = event.target.value;
-
+    
     setSearchTerm(value);
 
     // Filtrar las sugerencias
@@ -34,6 +39,7 @@ const SearchBar = ({ items, maxSuggestions = 5, action }) => {
       setSuggestions([]);
     }
   };
+console.log(Capitalizate(lang["search"]));
 
   const handleSuggestionClick = (suggestion) => {
     action(suggestion)
@@ -47,7 +53,7 @@ const SearchBar = ({ items, maxSuggestions = 5, action }) => {
       <input
         className='filter'
         type="text"
-        placeholder="Buscar..."
+        placeholder={Capitalizate(lang["search"]) + "..."}
         value={searchTerm}
         onChange={handleChange}
       // style={{ padding: '8px',width: '100%',  }}

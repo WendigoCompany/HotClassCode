@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import Gallery_Img from "./GalleryImg";
+import ChatBtnProfile from "../Components/Profile/ChatBtn";
+import RoomBtnProfile from "../Components/Profile/Room";
 
 export default function Description_Profile({ txt , gallery , setter}) {
     console.log(txt);
@@ -17,6 +19,8 @@ export default function Description_Profile({ txt , gallery , setter}) {
         </div>
         <div className="de-cont">
             <p  id="de-p"></p>
+            <ChatBtnProfile/>
+            <RoomBtnProfile/>
         </div>
     </>
 }

@@ -2,19 +2,20 @@ import { createContext, useContext, useState } from "react";
 import { usePageContent } from "../../Context/page_content";
 import AskChat from "./AskChat";
 import ChatMsj from "./ChatMsj";
+import { useGirl, useGirls } from "../../Pages/Profile";
 
 
 
 
 
-export const GirlContext = createContext();
-export const useGirl = () => useContext(GirlContext);
+// export const GirlContext = createContext();
+// export const useGirl = () => useContext(GirlContext);
 
 
 
-const GirlProvider = ({ children, ...params}) => {
-    return <GirlContext.Provider value={{ ...params }}>{children}</GirlContext.Provider>
-}
+// const GirlProvider = ({ children, ...params}) => {
+//     return <GirlContext.Provider value={{ ...params }}>{children}</GirlContext.Provider>
+// }
 
 
 export const MsjContext = createContext();
@@ -31,19 +32,21 @@ const MsjProvider = ({ children, ...params }) => {
 
 
 
-
 export default function ChatModal({ setter }) {
 
-    const { girls } = usePageContent();
+    const { girls } = useGirls();
+    const { girl, setGirl } = useGirl();
 
-    const [girl, setGirl] = useState(null);
+    // const [girl, setGirl] = useState(null);
 
-
+    
+    
     
     const [msj, setMsj] = useState(-1);
     const HandleChat = (e, g) => {
         setGirl(g)
     }
+
 
     document.body.style["overflow-x"] = "hidden";
     document.body.style["overflow-y"] = "hidden";
@@ -53,6 +56,7 @@ export default function ChatModal({ setter }) {
                 <div>
                     <button className="close-btn" onClick={() => {
                         setter(null)
+                        setGirl(null)
                         document.body.style["overflow-x"] = "auto";
                         document.body.style["overflow-y"] = "auto";
 
@@ -64,14 +68,14 @@ export default function ChatModal({ setter }) {
 
                 <div className="ch-dial-box">
                     <MsjProvider msj={msj} setMsj={setMsj}>
-                        <GirlProvider girl={girl} setGirl={setGirl}>
+                        {/* <GirlProvider girl={girl} setGirl={setGirl}> */}
                             <AskChat />
                         {
                             girl 
                             ?     <ChatMsj />
                             : ""
                         }
-                        </GirlProvider>
+                        {/* </GirlProvider> */}
                     </MsjProvider>
                 </div>
 

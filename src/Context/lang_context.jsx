@@ -6,8 +6,9 @@ export const useLang = () => useContext(LangContext);
 
 
 const LangProvider = ({ children }) => {
-    const [lang, setLang] = useState('en');
+    const [lang, setLang] = useState(sessionStorage.getItem("lang") || 'en');
 
+    sessionStorage.setItem("lang", lang)
     return <LangContext.Provider value={{lang , setLang}}>{children}</LangContext.Provider>
 }
 

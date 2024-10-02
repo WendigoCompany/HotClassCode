@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useDevice } from "../../Context/is_mobile";
 import { useLang } from "../../Context/lang_context";
-import { useGirl, useMsj } from "./ChatModal";
+import { useMsj } from "./ChatModal";
+import { useGirl } from "../../Pages/Profile";
 
 const textAnimation = (text) => {
     let index = [0, text.length];
