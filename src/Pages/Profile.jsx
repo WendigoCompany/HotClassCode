@@ -87,7 +87,7 @@ export default function Profile() {
                                 <Title />
                                 <Background />
                                 <Subtitle stitle={[girl_data["fname"], girl_data["title"]]} img={girl_data["gallery"][girl_data["main_img"]]} />
-                                <Description_Profile setter={setPreview} txt={girl_data["description"]} gallery={girl_data["gallery"]} />
+                                <Description_Profile setter={setPreview} txt={girl_data["description"]} gallery={girl_data["gallery"]} id={girl_data["id"]}/>
                                 {
                                     preview
                                         ? <>

@@ -3,7 +3,7 @@ import Gallery_Img from "./GalleryImg";
 import ChatBtnProfile from "../Components/Profile/ChatBtn";
 import RoomBtnProfile from "../Components/Profile/Room";
 
-export default function Description_Profile({ txt , gallery , setter}) {
+export default function Description_Profile({ txt , gallery , setter , id}) {
     console.log(txt);
     
     useEffect(()=>{
@@ -20,7 +20,7 @@ export default function Description_Profile({ txt , gallery , setter}) {
         <div className="de-cont">
             <p  id="de-p"></p>
             <ChatBtnProfile/>
-            <RoomBtnProfile/>
+            <RoomBtnProfile id={id}/>
         </div>
     </>
 }

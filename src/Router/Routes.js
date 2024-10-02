@@ -1,6 +1,7 @@
 import Disclaim from "../Pages/Disclaim";
 import Home from "../Pages/Home";
 import Profile from "../Pages/Profile";
+import Room from "../Pages/Room";
 
 
 
@@ -53,15 +54,19 @@ export const config = new Config({ gh_repo: '/HotClass/' });
 export default [
     {
         path: `/`,
-        e: <Home/>,
+        e: <Home />,
     },
     {
         path: `/profile/:id<int>`,
-        e: <Profile/>,
+        e: <Profile />,
     },
     {
         path: `/disclaim`,
-        e: <Disclaim/>,
+        e: <Disclaim />,
+    },
+    {
+        path: `/room/:id<int>`,
+        e: <Room/>,
     },
 ]
 
