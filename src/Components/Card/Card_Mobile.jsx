@@ -1,4 +1,5 @@
 import { usePageContent } from "../../Context/page_content";
+import Relocate from "../../Utils/relocate";
 
 
 export default function Card_Mobile({ data , extra }) {
@@ -30,7 +31,8 @@ export default function Card_Mobile({ data , extra }) {
                     <td>
                         <div className="ta-c">
                         <button onClick={()=>{
-                            window.location.href =`profile/${id}` ;
+                                 Relocate(`/profile/${id}`)
+                            // window.location.href =`profile/${id}` ;
                             // window.location.reload()
                         }}>{lang.more}</button>
                         </div>
