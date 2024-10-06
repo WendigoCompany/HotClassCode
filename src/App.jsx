@@ -13,10 +13,10 @@ export default function App() {
             <Home></Home>
         </LangProvider> */}
 
-        <LangProvider>
+
             <DeviceProvider>
                 <RouterApi />
             </DeviceProvider>
-        </LangProvider>
+
     </>
 }

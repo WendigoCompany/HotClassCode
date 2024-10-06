@@ -3,6 +3,7 @@ import { useRouter } from "./RouterContext"
 import { config } from "./Routes";
 import E404 from "./404";
 import MetaProvider from "./MetaContext";
+import LangProvider from "../Context/lang_context";
 
 const Handle_Exeptions = (path) => {
     if (path.trim() == '/') {
@@ -468,8 +469,10 @@ export default function Router() {
 
     return <>
         <MetaProvider metadata={page.meta}>
+            <LangProvider>
+                {page.compo}
+            </LangProvider>
 
-            {page.compo}
         </MetaProvider>
 
     </>
