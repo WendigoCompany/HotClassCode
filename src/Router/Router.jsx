@@ -451,8 +451,8 @@ export default function Router() {
 
             // }
 
-    
-            
+
+
             if (route_found.bool) {
                 component_loader(route_found, route_found.data.path.pd.compo)
             } else {
@@ -463,11 +463,12 @@ export default function Router() {
         }
 
     }
-     
+
 
 
     return <>
         <MetaProvider metadata={page.meta}>
+
             {page.compo}
         </MetaProvider>
 

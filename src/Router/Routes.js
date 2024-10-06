@@ -1,7 +1,10 @@
+import Redirect from "./Redirect";
 import Disclaim from "../Pages/Disclaim";
 import Home from "../Pages/Home";
 import Profile from "../Pages/Profile";
 import Room from "../Pages/Room";
+import DisclaimRedirect from "../Components/Control/DisclaimRedirect";
+import LangRedirect from "../Components/Control/LangRedirect";
 
 
 
@@ -50,23 +53,62 @@ EXAMPLES:
 */
 
 
+const redirecctions = [{ f: "/", d: "/en"   } , { f: "/profile/:id<int>", d: "/en/profile/:id<int>"}];
+
+const build_redirections = ({ middle, func }) => {
+
+    const red_routes = [];
+
+
+    redirecctions.map(red => (
+
+        red_routes.push({
+            path: red.f,
+            e: <Redirect destiny={red.d} middlewares={middle} func={func} />,
+            name: "Home"
+        })
+
+    ))
+
+    return red_routes
+}
+
 export const config = new Config({ gh_repo: '/HotClass/' });
 export default [
     {
-        path: `/`,
-        e: <Home />,
+        path: `/:lang<str>`,
+        e: <>
+            <DisclaimRedirect />
+            <Home />
+        </>,
+        name: "Home"
     },
     {
-        path: `/profile/:id<int>`,
-        e: <Profile />,
+        path: `/:lang<str>/profile/:id<int>`,
+        e: <>
+            <DisclaimRedirect />
+            <Profile />
+        </>,
+        name: "Profile"
     },
     {
         path: `/disclaim`,
         e: <Disclaim />,
+        name: "Disclaim"
     },
     {
         path: `/room/:id<int>`,
-        e: <Room/>,
+        e: <>
+            <DisclaimRedirect />
+            <Room />
+        </>,
+        name: "Room"
     },
-]
+].concat(build_redirections({
+    middle: <>
+
+        <DisclaimRedirect />
+        <LangRedirect />
+    </>
+}))
 

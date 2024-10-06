@@ -30,7 +30,6 @@ export default function Room() {
 
 
   return <>
-    <Background />
     {
       girl
       ? <>
