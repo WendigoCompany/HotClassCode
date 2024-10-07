@@ -6,7 +6,9 @@ export default function LangSelector(){
     <select value={lang} className="lang-selector" onChange={(e)=>{
         // setLang(e.target.value)
         window.location.href = window.location.href.replace(lang, e.target.value)
-
+        console.log("w",window.location.href);
+        console.log("wlan",lang);
+        
         if (process.env.REACT_APP_STADE == "gh") {
             window.location.reload()
     

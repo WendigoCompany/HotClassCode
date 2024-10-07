@@ -114,8 +114,6 @@ export default [
     },
 ].concat(build_redirections({
     middle: <>
-
-        <DisclaimRedirect />
         <LangRedirect />
     </>
 }))
