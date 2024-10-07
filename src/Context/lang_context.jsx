@@ -8,20 +8,27 @@ export const useLang = () => useContext(LangContext);
 
 const LangProvider = ({ children }) => {
 
+
+
+
+
+let langSt
+let setLang
   /* eslint-disable */
   try {
     const { getParam } = useRMeta();
     const { lang } = getParam();
 
-    const [langSt, setLang] = useState(lang);
+    //  const [langSt, setLang] = useState(lang);
 
-    return <LangContext.Provider value={{lang: langSt , setLang}}>{children}</LangContext.Provider>
-
+    let st1 =useState(lang) ;
+     langSt =st1[0];
+     setLang =st1[1];
   } catch (error) {
     console.log(error);
 
   }
-  
+    
 
   /* eslint-enable */
 
@@ -29,6 +36,9 @@ const LangProvider = ({ children }) => {
     
     // sessionStorage.setItem("lang", lang)
 
+
+    
+    return <LangContext.Provider value={{lang: langSt , setLang}}>{children}</LangContext.Provider>
 }
 
 export default LangProvider

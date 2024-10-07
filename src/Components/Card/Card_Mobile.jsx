@@ -1,3 +1,4 @@
+import { useLang } from "../../Context/lang_context";
 import { usePageContent } from "../../Context/page_content";
 import Relocate from "../../Utils/relocate";
 
@@ -6,7 +7,7 @@ export default function Card_Mobile({ data , extra }) {
     
     const { lang }= usePageContent()
     const { gallery, main_img, title, prev , id } = data;
-
+    const langPROV = useLang();
     return <div className="card-container br-sp2">
         <table>
             <tbody>
@@ -31,7 +32,7 @@ export default function Card_Mobile({ data , extra }) {
                     <td>
                         <div className="ta-c">
                         <button onClick={()=>{
-                                 Relocate(`/profile/${id}`)
+                                 Relocate(`/${langPROV.lang}/profile/${id}`)
                             // window.location.href =`profile/${id}` ;
                             // window.location.reload()
                         }}>{lang.more}</button>

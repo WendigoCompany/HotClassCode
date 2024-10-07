@@ -1,4 +1,5 @@
 
+import { useLang } from "../../Context/lang_context";
 import { usePageContent } from "../../Context/page_content";
 import { config } from "../../Router/Routes";
 import Relocate from "../../Utils/relocate";
@@ -11,6 +12,9 @@ export default function Card_Desk({ data , extra}) {
 
 
   const { lang }= usePageContent()
+
+  const langPROV = useLang();
+  
     const { gallery,main_img , title, prev , id } = data;
     let url = '';
     if(process.env.REACT_APP_STADE == "gh"){
@@ -35,7 +39,7 @@ export default function Card_Desk({ data , extra}) {
                         <div className="ta-c">
                         {/* <a href={ url+`/profile/${id}`} className="card-a">{lang.more}</a> */}
                         <button onClick={()=>{
-                            Relocate(`/profile/${id}`)
+                            Relocate(`/${langPROV.lang}/profile/${id}`)
                             // window.location.href =`profile/${id}` ;
                             // window.location.reload()
                         }}>{lang.more}</button>

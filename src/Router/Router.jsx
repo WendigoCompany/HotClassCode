@@ -465,11 +465,12 @@ export default function Router() {
 
     }
 
-
+    
 
     return <>
         <MetaProvider metadata={page.meta}>
             <LangProvider>
+                123
                 {page.compo}
             </LangProvider>
 

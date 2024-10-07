@@ -16,14 +16,13 @@ const PrevProvider = ({ children, ...params }) => {
 
 export default function Redirect({ children, middlewares = <></> , func ,destiny ="" }) {
     const [compo, setCompo ] = useState(<><label htmlFor="">Redirecting</label></>);
-
+    
     try {
         func()
     } catch (error) {
         console.log(error);
         
     }
-
     sessionStorage.setItem("d", destiny)
 
     return <>

@@ -4,10 +4,11 @@ import Relocate from "../../Utils/relocate";
 
 export default function LangRedirect({ to }) {
     /* eslint-disable */
-
+    
     try {
         const { getParam } = useRMeta();
         const params = getParam();
+
         if (params && params["lang"]) {
 
         } else {

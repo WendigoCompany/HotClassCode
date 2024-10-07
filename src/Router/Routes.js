@@ -53,7 +53,13 @@ EXAMPLES:
 */
 
 
-const redirecctions = [{ f: "/", d: "/en"   } , { f: "/profile/:id<int>", d: "/en/profile/:id<int>"}];
+const redirecctions = [
+    { f: "/", d: "/en" }, 
+    { f: "/profile/:id<int>", d: "/en/profile/:id<int>" },
+    { f: "/disclaim", d: "/en/disclaim" },
+    { f: "/room/:id<int>", d: "/en/room/:id<int>" }
+
+];
 
 const build_redirections = ({ middle, func }) => {
 
@@ -76,6 +82,8 @@ const build_redirections = ({ middle, func }) => {
 export const config = new Config({ gh_repo: '/HotClass/' });
 export default [
     {
+
+
         path: `/:lang<str>`,
         e: <>
             <DisclaimRedirect />
@@ -92,12 +100,12 @@ export default [
         name: "Profile"
     },
     {
-        path: `/disclaim`,
+        path: `/:lang<str>/disclaim`,
         e: <Disclaim />,
         name: "Disclaim"
     },
     {
-        path: `/room/:id<int>`,
+        path: `/:lang<str>/room/:id<int>`,
         e: <>
             <DisclaimRedirect />
             <Room />
