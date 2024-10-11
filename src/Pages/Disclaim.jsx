@@ -42,7 +42,7 @@ const move_to_page = ()=>{
         let origin = sessionStorage.getItem('o');
         sessionStorage.setItem("disclaim" , 1)
         if(origin){
-            window.location.href = origin;
+            Relocate(origin.replace("#", ""))
             sessionStorage.removeItem('o')
             
         }else{
@@ -53,7 +53,7 @@ const move_to_page = ()=>{
         // if (origin == null || origin.length < 8) {
         //     origin = github_url + router_code;
         // }
-        // sessionStorage.setItem("disclaim", true)
+        // sessionStorage.setItem("disclaim", true) 
         // window.location.href = origin;
         // setTimeout(() => {
         //     window.location.reload();
