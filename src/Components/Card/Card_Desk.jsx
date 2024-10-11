@@ -39,7 +39,7 @@ export default function Card_Desk({ data, extra }) {
                         </div>
                         <div className="ta-c">
                             {/* <a href={ url+`/profile/${id}`} className="card-a">{lang.more}</a> */}
-                            <button onClick={() => {
+                            <button className="pag-btn" onClick={() => {
                                 Relocate(`/${langPROV.lang}/profile/${id}`)
                                 // window.location.href =`profile/${id}` ;
                                 // window.location.reload()

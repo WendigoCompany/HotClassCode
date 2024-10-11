@@ -7,12 +7,14 @@
     transition: background-color .3s;
 }
 
+
+
 .btxt-p , .btxt-t{
-    color: #cffffb;
+    color: var(--white);
 }
 
 .card-a{
-    color: #cffffb;
+    color: var(--white);
 }
 
 @media (max-width: 769px) {

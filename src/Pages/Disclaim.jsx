@@ -20,6 +20,7 @@ import es from "../Lang/es/disclaim.json"
 import en from "../Lang/en/disclaim.json"
 import { useLang } from "../Context/lang_context";
 import Title from "../Components/Title/Title";
+import Relocate from "../Utils/relocate";
 // LANGS
 
 
@@ -38,7 +39,17 @@ export default function Disclaim() {
     
 const move_to_page = ()=>{
   
-        let origin = sessionStorage.getItem('origin');
+        let origin = sessionStorage.getItem('o');
+        sessionStorage.setItem("disclaim" , 1)
+        if(origin){
+            window.location.href = origin;
+            sessionStorage.removeItem('o')
+            
+        }else{
+            Relocate(`/${lang}/`)
+            sessionStorage.removeItem('o')
+        }
+
         // if (origin == null || origin.length < 8) {
         //     origin = github_url + router_code;
         // }

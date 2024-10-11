@@ -1,4 +1,6 @@
 {
     "more": "LEER PERFIL",
-       "search": "BUSCAR"
+    "search": "BUSCAR",
+    "pag-prev": "ANTERIOR",
+    "pag-nxt": "SIGUIENTE"
 }

@@ -1,4 +1,6 @@
 {
     "more": "READ PROFILE",
-    "search": "SEARCH"
+    "search": "SEARCH",
+    "pag_prev": "PREV",
+    "pag_nxt": "NEXT"
 }

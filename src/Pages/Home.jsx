@@ -75,7 +75,7 @@ export default function Home() {
             {
                 (device == 'desk') ? (girls_data.slice(ppage * actual_page, ppage * (actual_page + 1)).map(gl => <Card_Desk data={gl} />)) : (girls_data.slice(ppage * actual_page, ppage * (actual_page + 1)).map(gl => <Card_Mobile data={gl} />))
             }
-            <Paginator actual_page={actual_page} pages={Math.ceil(girls_data.length / ppage)} />
+            <Paginator currentPage={actual_page} setCurrentPage={setActualPage} totalPages={Math.ceil(girls_data.length / ppage)} />
         </PageContentProviver>
     </>
 }

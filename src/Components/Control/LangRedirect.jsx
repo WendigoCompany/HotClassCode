@@ -13,13 +13,13 @@ export default function LangRedirect({ to }) {
 
         } else {
             if (sessionStorage.getItem("d")) {
+  
                 let destiny = sessionStorage.getItem("d");
                 if (params) {
                     Object.keys(params).map(k => {
                         if (destiny.includes(`:${k}<`)) {
                             const toReplace = destiny.substring(destiny.indexOf(`:${k}<`), destiny.indexOf(">") + 1);
                             destiny = destiny.replace(toReplace, params[k]);
-
 
                         }
 
