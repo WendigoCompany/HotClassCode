@@ -1,5 +1,6 @@
 import { useLang } from "../../Context/lang_context";
 import { usePageContent } from "../../Context/page_content";
+import ReloadImage from "../../Utils/reload_image";
 import Relocate from "../../Utils/relocate";
 
 
@@ -14,7 +15,9 @@ export default function Card_Mobile({ data , extra }) {
 
                 <tr style={{ width: "100%" }}>
                     <td>
-                        <img style={{ width: "95%", marginLeft: "2.5%" }} className="br-sp1   " src={gallery[main_img]} alt="" />
+                        <img 
+                        onError={(e) => { ReloadImage(e, gallery[main_img]) }} 
+                        style={{ width: "95%", marginLeft: "2.5%" }} className="br-sp1   " src={gallery[main_img]} alt="" />
                     </td>
                 </tr>
                 <tr style={{ width: "100%" }}>

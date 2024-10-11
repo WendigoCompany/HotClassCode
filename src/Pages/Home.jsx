@@ -43,6 +43,19 @@ export default function Home() {
 
     const ppage = 5;
 
+
+
+    const getAllTags =()=>{
+        let final =[];
+        girls[lang].map(g =>final = final.concat(g.tags))
+        return [...new Set(final)]
+        // const fullTags = girls[lang].map(g => {
+        //     return  {}
+        // }); 
+    }
+
+
+
     return <>
         <PageContentProviver lang={langs[lang]}>
             <LangSelector />
@@ -51,9 +64,9 @@ export default function Home() {
                 <Chat />
             </PageContentProviver>
             {/* <Filter /> */}
-            <SearchBar items={girls[lang][0].tags} action={(filter) => {
-                console.log(filter);
-
+            <SearchBar items={getAllTags()} action={(filter) => {
+        
+                
                 const newGirls = girls[lang].filter(gl => gl.tags.indexOf(filter) != -1);
 
                 setGirlsData(newGirls)
