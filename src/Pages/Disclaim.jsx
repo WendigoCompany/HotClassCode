@@ -44,23 +44,6 @@ const move_to_page = ()=>{
         Relocate(origin.replace("#", ""))
         sessionStorage.removeItem('o')
 
-        // if(origin){
-        //     Relocate(origin.replace("#", ""))
-        //     sessionStorage.removeItem('o')
-            
-        // }else{
-        //     Relocate(`/${lang}/`)
-        //     sessionStorage.removeItem('o')
-        // }
-
-        // if (origin == null || origin.length < 8) {
-        //     origin = github_url + router_code;
-        // }
-        // sessionStorage.setItem("disclaim", true) 
-        // window.location.href = origin;
-        // setTimeout(() => {
-        //     window.location.reload();
-        // }, 500);
 
     
 }

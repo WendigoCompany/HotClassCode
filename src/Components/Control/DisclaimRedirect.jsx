@@ -8,13 +8,14 @@ export default function DisclaimRedirect(){
 
 
     if(!sessionStorage.getItem("disclaim")){
-        Relocate( "/"+ lang + "/disclaim/")
+
         
         if(process.env.REACT_APP_STADE == "gh"){
             sessionStorage.setItem("o", window.location.hash)
         }else{
             sessionStorage.setItem("o", window.location.pathname)
         }
+        Relocate( "/"+ lang + "/disclaim/")
     }
     return <>
 
