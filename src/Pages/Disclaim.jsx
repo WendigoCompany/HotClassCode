@@ -39,16 +39,19 @@ export default function Disclaim() {
     
 const move_to_page = ()=>{
   
-        let origin = sessionStorage.getItem('o');
+        let origin = sessionStorage.getItem('o') || `/${lang}/` ;
         sessionStorage.setItem("disclaim" , 1)
-        if(origin){
-            Relocate(origin.replace("#", ""))
-            sessionStorage.removeItem('o')
+        Relocate(origin.replace("#", ""))
+        sessionStorage.removeItem('o')
+
+        // if(origin){
+        //     Relocate(origin.replace("#", ""))
+        //     sessionStorage.removeItem('o')
             
-        }else{
-            Relocate(`/${lang}/`)
-            sessionStorage.removeItem('o')
-        }
+        // }else{
+        //     Relocate(`/${lang}/`)
+        //     sessionStorage.removeItem('o')
+        // }
 
         // if (origin == null || origin.length < 8) {
         //     origin = github_url + router_code;
