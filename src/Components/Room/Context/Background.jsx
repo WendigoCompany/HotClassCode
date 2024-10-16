@@ -12,7 +12,6 @@ const BackgroundProvider = ({ children }) => {
     const [dbBackground, setDBBackground] = useState(db);
     const [actualBackground, setActualBackground] = useState(db[0]);
 
-    /* eslint-enable */
     return <BackgroundContext.Provider value={{ dbBackground, setDBBackground, actualBackground, setActualBackground }}>{children}</BackgroundContext.Provider>
 }
 

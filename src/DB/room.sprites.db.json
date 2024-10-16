@@ -1,0 +1,43 @@
+[
+    {
+        "wid": 0,
+        "skins": [
+            {
+                "sid": 0,
+                "conj_stl": [
+                    {
+                        "conjs": [
+                            0
+                        ],
+                        "st": {
+                            "desk": {
+                                "w_b": "400px",
+                                "h_b": "800px",
+                                "bot_b": "0px",
+                                "lf_b": "0px",
+                                "w_h": "400px",
+                                "h_h": "200px",
+                                "bot_h": "793px",
+                                "lf_h": "0px",
+                                "bot_ctn": "-16vh",
+                                "lf_ctn": "40%"
+                            },
+                            "mob": {}
+                        }
+                    }
+                ],
+                "conj": [
+                    {
+                        "conjid": 0,
+                        "b": "https://1drv.ms/i/c/292ca9915b33b64d/IQQCP2AvCpLZRJpRPJxz0wy7AVRURsL0qkQF2Br87F__0o8",
+                        "h": [
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQRmEYFmZXhCSIvOhRiX39zEAXYARdJ9teUckrOoSgbAHLY",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQRe3ewNL3e0SoXe225N8THsAfi4XMDK6t1lGnUI6Sr6YaY",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQT3nA2Q90GWTpErMgyEStMUAYxAoxl4zc_biNWap-oPgxE"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

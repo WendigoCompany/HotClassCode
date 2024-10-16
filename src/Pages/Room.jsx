@@ -6,6 +6,9 @@ import en from "../DB/manifiest.en.json"
 import es from "../DB/manifiest.es.json"
 import { useRMeta } from "../Router/MetaContext";
 import R_BackgroundControl from "../Components/Room/Control/Background";
+import SpriteProvider from "../Components/Room/Context/Sprite.context";
+import Sprite from "../Components/Room/Components/Sprite";
+import PageContentProviver from "../Context/page_content";
 const girls = { en, es };
 
 
@@ -35,13 +38,19 @@ export default function Room() {
   return <>
     {
       girl
-      ? <>
-      <BackgroundProvider>
-      <R_BackgroundControl/>
-      <R_BackgroundCompo/>
-      </BackgroundProvider>
-      </>
-      : ""
+        ? <>
+          <PageContentProviver girl={girl}>
+            <BackgroundProvider>
+              <R_BackgroundControl />
+              <R_BackgroundCompo />
+            </BackgroundProvider>
+
+            <SpriteProvider>
+              <Sprite />
+            </SpriteProvider>
+          </PageContentProviver>
+        </>
+        : ""
 
     }
   </>
