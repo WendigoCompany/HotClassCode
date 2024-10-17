@@ -1,0 +1,14 @@
+#spinner {
+    width: 4%;
+    height: 8%;
+    position: fixed;
+    bottom: 0%;
+    right: 0%;
+    
+}
+
+/* MOB */
+@media (max-width: 769px) {}
+
+/* DESK */
+@media (min-width: 769px) {}

@@ -6,18 +6,16 @@ export const useSprite = () => useContext(SpriteContext);
 
 
 
+const SpriteProvider = ({ children, ...params }) => {
 
-const SpriteProvider = ({ children }) => {
+    const getSprite = (id) => params.sprites.filter(sp => sp.spid == id)[0]
 
-    const [sp_head, useHead] = useState("");
-    const [sp_body, useBody] = useState("");
+
+
+
 
     return <SpriteContext.Provider value={{
-        sp_head,
-        useHead,
-        sp_body,
-        useBody,
-
+        ...params, getSprite
     }}>{children}</SpriteContext.Provider>
 }
 

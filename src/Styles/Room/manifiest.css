@@ -1,3 +1,6 @@
 @import url('../fonts.css');
 @import url("../main.css");
 @import url('background.css');
+@import url('sprites.css');
+@import url('modals.css');
+@import url('../spinner.css');

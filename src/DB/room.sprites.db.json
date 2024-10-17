@@ -17,7 +17,7 @@
                                 "lf_b": "0px",
                                 "w_h": "400px",
                                 "h_h": "200px",
-                                "bot_h": "793px",
+                                "bot_h": "828px",
                                 "lf_h": "0px",
                                 "bot_ctn": "-16vh",
                                 "lf_ctn": "40%"
@@ -29,17 +29,50 @@
                 "conj": [
                     {
                         "conjid": 0,
-                        "b": ["https://1drv.ms/i/c/292ca9915b33b64d/IQQCP2AvCpLZRJpRPJxz0wy7AVRURsL0qkQF2Br87F__0o8",
-                     "https://1drv.ms/i/c/292ca9915b33b64d/IQQT9bSuDoz5QZknyzVXnQtXAbKcUe1NVgYUW-cNuZhvELA"
-                    ],
+                        "b": [
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQRWcq2dQtK_S7ITJ0ntH_O3AYudwRy-VLEJ1PJ86EgMmgE",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQQQEp8hl6x1Tq_2krBvgpM7AWQWrm13C0rVOJ4qxnDp2So",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQSmjWgxX0BxSrXsug9N4jWHATglfC-iOVcm54f1C4woVw4",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQSEyhtDx4tUTKjMKNrSZ8DEAcSLfwfwGKRlp7v_H3F6jCA",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQQSCYC1LkesQ5J1UG5tZHeuAXBVB_2ZlBbaxOHiWufNIac",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQT8DgJRmVVZQrY5V399JmNWATJ1rvXG786T93KuCR9rUeY",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQQSkLMRKWT1SL3o08b707WRAZk4SgGPjbbxDRXHU9NiS50",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQTzEcpMj3tMQpCgmgpVTh1nAak8W7qXd5yFAXoDNPTk5Oo",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQRtDNlTVvtzSaQvEBbSLgxQAXZsejVhyQmT_eQPzbwxRHo"
+                        ],
                         "h": [
-                            "https://1drv.ms/i/c/292ca9915b33b64d/IQRmEYFmZXhCSIvOhRiX39zEAXYARdJ9teUckrOoSgbAHLY",
-                            "https://1drv.ms/i/c/292ca9915b33b64d/IQRe3ewNL3e0SoXe225N8THsAfi4XMDK6t1lGnUI6Sr6YaY",
-                            "https://1drv.ms/i/c/292ca9915b33b64d/IQT3nA2Q90GWTpErMgyEStMUAYxAoxl4zc_biNWap-oPgxE"
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQSIQdg2V077Q6RnUiwpTPpfAbQz95dniVl9Rn4Od9wALvE",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQSziLLI1bUGRLtq6uPLXXwjATbzg9IeEtCducjjSMkn0YY",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQQLRoXWIT9cQaULbEbNI2BOAfBaijbJkpo71DI_lWeaQxM",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQTn8GtPh5HZSI5D7rOE7f0FAXnYHD1v_E7tGz5SQ3csMgc",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQRjCFykMN9qRoeBir62Zp6FAVH9KkU5KJY1d4LJTwkmW-g",
+                            "https://1drv.ms/i/c/292ca9915b33b64d/IQS9Rah0MAGVRbvWa1GEbObkAaun8gBD2YaV_QP068vNX28"
                         ]
                     }
                 ],
-                "poses" :[]
+                "poses": [
+                    {
+                        "skin_allowed": [
+                            3,
+                            3
+                        ]
+                    }
+                ],
+                "skin_dict": [
+                    "11",
+                    "12",
+                    "13",
+                    "21",
+                    "22",
+                    "23",
+                    "31",
+                    "32",
+                    "33"
+                ],
+                "skin_allowed": [
+                    3,
+                    3
+                ]
             }
         ]
     }

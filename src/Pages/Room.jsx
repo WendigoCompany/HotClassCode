@@ -9,9 +9,13 @@ import R_BackgroundControl from "../Components/Room/Control/Background";
 import SpriteProvider from "../Components/Room/Context/Sprite.context";
 import Sprite from "../Components/Room/Components/Sprite";
 import PageContentProviver from "../Context/page_content";
+import { SpriteObject } from "../Components/Room/Squemas/Sprite";
+import SpriteControl from "../Components/Room/Control/Sprite";
+import RModalProvider from "../Components/Room/Context/RoomModal";
 const girls = { en, es };
 
 
+sessionStorage.removeItem("active-modal")
 
 export default function Room() {
   const { lang } = useLang();
@@ -32,7 +36,9 @@ export default function Room() {
 
 
 
-
+  const sprites = [
+    new SpriteObject(0)
+  ];
 
 
   return <>
@@ -40,15 +46,20 @@ export default function Room() {
       girl
         ? <>
           <PageContentProviver girl={girl}>
-            <BackgroundProvider>
-              <R_BackgroundControl />
-              <R_BackgroundCompo />
-            </BackgroundProvider>
 
-            <SpriteProvider>
-              <Sprite />
-            </SpriteProvider>
+            <BackgroundProvider>
+              <SpriteProvider sprites={sprites}>
+                <RModalProvider>
+                  <R_BackgroundControl />
+                  <R_BackgroundCompo />
+                  {sprites.map(sp => <Sprite sp={sp} />)}
+                  <SpriteControl sprites={sprites[0]} />
+                </RModalProvider>
+              </SpriteProvider>
+            </BackgroundProvider>
           </PageContentProviver>
+
+          <div id="spinner"></div>
         </>
         : ""
 

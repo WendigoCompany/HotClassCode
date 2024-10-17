@@ -1,0 +1,55 @@
+#r-modal-ctn{
+    transition: opacity .3s;
+}
+
+.r-b-modal{
+    position: absolute;
+    top: 5vh;
+
+    padding: 1% 0%;
+    background-color: #000000;
+    z-index: 99;
+
+    transition: opacity .3s;
+}
+
+.r-spri-modal{
+    right: 0%;
+    width: 30%;
+}
+
+
+.r-spri-modal .sep{
+    background-color: #7e7e7e;
+    width: 100%;
+    height: 1px;
+}
+
+.r-clts-selectors .r-btn-off{
+    width: 5vh;
+    height: 5vh;
+    display: inline-block;
+    border-radius: 50%;
+    margin-bottom:1% ;
+    margin-left: 1%;
+    background-color: #f8a8ff;
+    border: none;
+    text-align: center;
+}
+.r-clts-selectors img{
+    width: 100%;
+}
+
+.r-btn-md{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.r-clts-selectors label{
+    background-color: red;
+}
+/* MOB */
+@media (max-width: 769px) {}
+
+/* DESK */
+@media (min-width: 769px) {}
