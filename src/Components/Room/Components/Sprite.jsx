@@ -164,8 +164,9 @@ export default function Sprite({ sp }) {
 
 
     // const sp = new spect(sp.spid);
-
-    sp.pre_load(girl.id, device)
+    sp.set_girl(girl.id)
+    sp.set_device(device)
+    sp.pre_load()
 
 
     // let skin = 0;

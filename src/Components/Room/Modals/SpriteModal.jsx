@@ -21,8 +21,8 @@ export default function SpriteModal() {
                         <button
                         onClick={()=>{
                             pack[0] = i +1;
-                            
-                            sprite.update_body(sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
+                            sprite.update_both(sprite.head, sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
+                            // sprite.update_body(sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
                         }}
                         className="r-btn-off r-btn-md">{i + 1}</button>
                     </td>
@@ -47,14 +47,35 @@ export default function SpriteModal() {
                         <button
                         onClick={()=>{
                             pack[1] = i +1;
-                            
-                            sprite.update_body(sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
+                            sprite.update_both(sprite.head, sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
+                            // sprite.update_body(sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
                         }}
                         className="r-btn-off r-btn-md">{i + 1}</button>
                     </td>
                     <td style={{ width: "1%" }}></td>
 
                 </>
+            )
+        }
+
+        return btns
+    }
+
+    const create_skins_btns = () => {
+        const btns = [];
+        const images = sprite.get_skins_preview();
+        for (let i = 0; i < sprite.skins; i++) {
+            btns.push(
+                <button 
+                onClick={()=>{
+                    sprite.update_skin(i)
+                }}
+                style={{
+                    backgroundSize: "50% 100%",
+                    backgroundRepeat : "no-repeat",
+                    backgroundPosition: "center",
+                    backgroundImage : `url("${images[i]}")`
+                }}></button>
             )
         }
 
@@ -71,6 +92,9 @@ export default function SpriteModal() {
 
     // }, [])
     return <div className="r-b-modal r-spri-modal">
+        <div className="r-skins-list">
+            {create_skins_btns()}
+        </div>
         <div className="sep">
 
         </div>

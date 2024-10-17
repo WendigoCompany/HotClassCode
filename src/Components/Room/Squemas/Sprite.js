@@ -4,6 +4,8 @@ import spinnerGIF from "../../../Media/spinner-8565_256.gif"
 /* eslint-disable */
 export class SpriteObject {
     constructor(spid) {
+        this.skins;
+        this.girlID;
         this.skin = 0;
         this.conj = 0;
         this.head = 0;
@@ -25,15 +27,23 @@ export class SpriteObject {
         this.style_body_hidden = undefined;
         this.spid = spid;
         this.allowed = 0;
+        this.device;
         this.cl_dict;
     }
 
+    set_girl(girlID) {
+        this.girlID = girlID;
+    }
 
-    kill_spinner(){
+    set_device(device) {
+        this.device = device;
+    }
+
+    kill_spinner() {
         try {
             document.getElementById("spinner-img").remove()
         } catch (error) {
-            
+
         }
     }
 
@@ -46,11 +56,12 @@ export class SpriteObject {
         document.getElementById("spinner").append(spinner)
     }
 
-    pre_load(gID, device) {
-        this.sprite_data = SpriteData.filter(w => w.wid == gID)[0];
+    pre_load() {
+        this.sprite_data = SpriteData.filter(w => w.wid == this.girlID)[0];
+        this.skins = this.sprite_data.skins.length;
         this.skin_data = this.sprite_data.skins.filter(s => s.sid == this.skin)[0];
         this.conj_data = this.skin_data.conj.filter(c => c.conjid == this.conj)[0];
-        this.conj_style = this.skin_data.conj_stl.filter(cjstl => cjstl.conjs.indexOf(this.conj) != -1)[0].st[device];
+        this.conj_style = this.skin_data.conj_stl.filter(cjstl => cjstl.conjs.indexOf(this.conj) != -1)[0].st[this.device];
         this.style_head_actual = { position: "absolute", bottom: this.conj_style.bot_h, width: this.conj_style.w_h, height: this.conj_style.h_h };
         this.style_head_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
         this.style_body_actual = { position: "absolute", bottom: this.conj_style.bot_b, width: this.conj_style.w_b, height: this.conj_style.h_b };
@@ -60,16 +71,26 @@ export class SpriteObject {
 
     }
 
+    get_skins_preview() {
+        return this.sprite_data.skins.map(ski => ski.conj[0].b[0])
+
+    }
+
     update_skin(new_skin_id) {
         this.kill_spinner()
-        this.roll_spiner ()
+        this.roll_spiner()
+        this.conj = 0;
+        this.head = 0;
+        this.body = 0;
         this.skin = new_skin_id;
+        this.update_both(0, 0)
         this.pre_load()
+
     }
 
     update_body(new_body_id) {
         this.kill_spinner()
-        this.roll_spiner ()
+        this.roll_spiner()
         const newb = (this.actual_body == 0) ? (1) : (0);
         const oldb = (newb == 0) ? (1) : (0);
         this.body = new_body_id;
@@ -93,7 +114,7 @@ export class SpriteObject {
 
     update_head(new_head_id) {
         this.kill_spinner()
-        this.roll_spiner ()
+        this.roll_spiner()
         const newh = (this.actual_head == 0) ? (1) : (0);
         const oldh = (newh == 0) ? (1) : (0);
         this.head = new_head_id;
@@ -115,7 +136,14 @@ export class SpriteObject {
     }
     update_both(new_head_id, new_body_id) {
         this.kill_spinner()
-        this.roll_spiner ()
+        this.roll_spiner()
+
+
+        document.getElementById(`sp-head-${this.spid}-${0}`).style.opacity = 0;
+        document.getElementById(`sp-head-${this.spid}-${1}`).style.opacity = 0;
+        document.getElementById(`sp-body-${this.spid}-${0}`).style.opacity = 0;
+        document.getElementById(`sp-body-${this.spid}-${1}`).style.opacity = 0;
+        
         const newh = (this.actual_head == 0) ? (1) : (0);
         const oldh = (newh == 0) ? (1) : (0);
         this.head = new_head_id;

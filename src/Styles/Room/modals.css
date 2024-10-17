@@ -45,11 +45,70 @@
     cursor: pointer;
 }
 
-.r-clts-selectors label{
-    background-color: red;
+
+
+.r-skins-list{
+    width: 100%;
+    margin-bottom: 3%;
+    overflow-x: auto;
+    overflow-y: hidden;
+   white-space: nowrap;
 }
+.r-skins-list button{
+    width: 8vh;
+    height: 8vh;
+    margin-left: 1% ;
+    cursor: pointer;
+    border: none;
+    background-color: #000000;
+    transition: background-color .3s;
+}
+
+
+.ch-dial-box {
+    width: 95%;
+    margin-left: calc(5% / 2);
+    height: 80%;
+    background-color: #3f3f3fbd;
+}
+
+.ch-list {
+    width: 95%;
+    margin-top: 1.5%;
+    height: 11%;
+    background-color: #3f3f3fbd;
+    margin-left: calc(5% / 2);
+    overflow-x: auto;
+    /* Permite el desplazamiento horizontal */
+    overflow-y: hidden;
+    /* Permite el desplazamiento horizontal */
+    white-space: nowrap;
+    /* Asegura que los elementos se alineen en una sola línea */
+}
+
+
+.chat-list-g {
+    display: inline-block;
+    margin-left: .5%;
+    /* Espacio entre los items */
+    text-align: center;
+    /* Centra el texto horizontalmente */
+    height: 95%;
+    width: 100px;
+    border: 1px solid red;
+    border-radius: 50%;
+    background-color: transparent;
+    /* Color de fondo de los items */
+    background-size: cover;
+    background-position: center;
+}
+
 /* MOB */
 @media (max-width: 769px) {}
 
 /* DESK */
-@media (min-width: 769px) {}
+@media (min-width: 769px) {
+    .r-skins-list button:hover{
+        background-color: var(--red);
+    }
+}
