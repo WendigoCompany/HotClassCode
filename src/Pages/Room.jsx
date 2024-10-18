@@ -12,6 +12,9 @@ import PageContentProviver from "../Context/page_content";
 import { SpriteObject } from "../Components/Room/Squemas/Sprite";
 import SpriteControl from "../Components/Room/Control/Sprite";
 import RModalProvider from "../Components/Room/Context/RoomModal";
+import AnimationControl from "../Components/Room/Control/Animation";
+import SexControl from "../Components/Room/Control/Sex";
+import HomeControl from "../Components/Room/Control/Home";
 const girls = { en, es };
 
 
@@ -50,10 +53,15 @@ export default function Room() {
             <BackgroundProvider>
               <SpriteProvider sprites={sprites}>
                 <RModalProvider>
-                  <R_BackgroundControl />
+                  <HomeControl/>
                   <R_BackgroundCompo />
+                  <R_BackgroundControl />
                   {sprites.map(sp => <Sprite sp={sp} />)}
                   <SpriteControl sprites={sprites[0]} />
+
+                  <SexControl/>
+                  <AnimationControl/>
+
                 </RModalProvider>
               </SpriteProvider>
             </BackgroundProvider>

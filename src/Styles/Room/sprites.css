@@ -1,6 +1,6 @@
 .r-spr-clt{
     top: 0% !important;
-    right: 0% !important;
+    left: 80% !important;
 }
 /* MOB */
 @media (max-width: 769px) {}
