@@ -67,7 +67,19 @@ export class SpriteObject {
         this.style_body_actual = { position: "absolute", bottom: this.conj_style.bot_b, width: this.conj_style.w_b, height: this.conj_style.h_b };
         this.style_body_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
         this.allowed = this.skin_data.skin_allowed;
-        this.cl_dict = this.skin_data.skin_dict;        
+        this.cl_dict = this.skin_data.skin_dict;
+        
+        try {
+            setTimeout(() => {
+                               
+        document.getElementById("r-sp-ctn").style.bottom = this.conj_style.bot_ctn;
+        document.getElementById("r-sp-ctn").style.left = this.conj_style.lf_ctn;
+            }, 100);
+        } catch (error) {
+            
+        }
+
+        
     }
 
     get_skins_preview() {

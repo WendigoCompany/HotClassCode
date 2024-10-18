@@ -359,9 +359,8 @@ export default function Sprite({ sp }) {
     }, [])
 
 
-    
 
-    return <div style={{ position: "fixed", bottom: sp.conj_style.bot_ctn, left: sp.conj_style.lf_ctn, textAlign: "center" }}>
+    return <div id="r-sp-ctn" style={{ position: "fixed", bottom: sp.conj_style.bot_ctn, left: sp.conj_style.lf_ctn, textAlign: "center" }}>
         {/* HEAD 1 */}
         <div style={(sp.actual_head != 0) ? (sp.style_head_hidden) : (sp.style_head_actual)} id={`sp-head-ctn-${sp.spid}-0`}>
             <img className="w-100 h-100" id={`sp-head-${sp.spid}-0`} style={{ opacity: 0, transition: "opacity .3s" }} alt="" /></div>

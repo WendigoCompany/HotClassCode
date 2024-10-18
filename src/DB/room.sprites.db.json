@@ -106,15 +106,15 @@
                                 "lf_ctn": "40%"
                             },
                             "mob": {
-                                "w_b": "225px",
-                                "h_b": "450px",
+                                "w_b": "250px",
+                                "h_b": "500px",
                                 "bot_b": "0px",
                                 "lf_b": "0px",
-                                "w_h": "225px",
-                                "h_h": "50px",
-                                "bot_h": "517px",
+                                "w_h": "250px",
+                                "h_h": "125px",
+                                "bot_h": "506px",
                                 "lf_h": "0px",
-                                "bot_ctn": "-2vh",
+                                "bot_ctn": "-7vh",
                                 "lf_ctn": "15vw" 
                             }
                         }
