@@ -359,7 +359,6 @@ export default function Sprite({ sp }) {
     }, [])
 
 
-    console.log(sp);
     
 
     return <div style={{ position: "fixed", bottom: sp.conj_style.bot_ctn, left: sp.conj_style.lf_ctn, textAlign: "center" }}>

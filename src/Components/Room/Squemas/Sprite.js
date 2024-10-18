@@ -67,11 +67,7 @@ export class SpriteObject {
         this.style_body_actual = { position: "absolute", bottom: this.conj_style.bot_b, width: this.conj_style.w_b, height: this.conj_style.h_b };
         this.style_body_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
         this.allowed = this.skin_data.skin_allowed;
-        this.cl_dict = this.skin_data.skin_dict;
-        console.log(this.device);
-        
-        console.log(this.skin_data.conj_stl.filter(cjstl => cjstl.conjs.indexOf(this.conj) != -1)[0].st[this.device]);
-        
+        this.cl_dict = this.skin_data.skin_dict;        
     }
 
     get_skins_preview() {

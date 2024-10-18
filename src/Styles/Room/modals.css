@@ -5,11 +5,9 @@
 .r-b-modal{
     position: absolute;
     top: 5vh;
-
     padding: 1% 0%;
     background-color: #000000;
     z-index: 99;
-
     transition: opacity .3s;
 }
 
@@ -104,7 +102,12 @@
 }
 
 /* MOB */
-@media (max-width: 769px) {}
+@media (max-width: 769px) {
+    .r-spri-modal{
+        right: 0%;
+        width: 90%;
+    }
+}
 
 /* DESK */
 @media (min-width: 769px) {
