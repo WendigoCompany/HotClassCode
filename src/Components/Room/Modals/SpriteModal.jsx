@@ -1,4 +1,4 @@
-import { lazy, useEffect } from "react"
+import { lazy, useEffect, useState } from "react"
 import top from "../../../Media/top.png"
 import bot from "../../../Media/bot.png"
 import { useSprite } from "../Context/Sprite.context";
@@ -6,8 +6,15 @@ import { useSprite } from "../Context/Sprite.context";
 export default function SpriteModal() {
 
     const { getSprite } = useSprite();
+    const [allowed , setAllowed] = useState([0,0]);
+
     const sprite= getSprite(0);
-    const allowed = sprite.allowed;
+
+
+    if(sprite.allowed != allowed){
+        setAllowed(sprite.allowed)
+    }
+    // const allowed = sprite.allowed;
     
     let pack = (sessionStorage.getItem("cl-pack") || "1,1").split(',');  
 
@@ -69,6 +76,9 @@ export default function SpriteModal() {
                 <button 
                 onClick={()=>{
                     sprite.update_skin(i)
+                    if(sprite.allowed != allowed){
+                        setAllowed(sprite.allowed)
+                    }
                 }}
                 style={{
                     backgroundSize: "50% 100%",

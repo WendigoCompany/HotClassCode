@@ -22,7 +22,18 @@
                                 "bot_ctn": "-16vh",
                                 "lf_ctn": "40%"
                             },
-                            "mob": {}
+                            "mob": {
+                                "w_b": "225px",
+                                "h_b": "450px",
+                                "bot_b": "0px",
+                                "lf_b": "0px",
+                                "w_h": "225px",
+                                "h_h": "50px",
+                                "bot_h": "528px",
+                                "lf_h": "0px",
+                                "bot_ctn": "-2vh",
+                                "lf_ctn": "15vw"
+                            }
                         }
                     }
                 ],
@@ -94,7 +105,18 @@
                                 "bot_ctn": "-16vh",
                                 "lf_ctn": "40%"
                             },
-                            "mob": {}
+                            "mob": {
+                                "w_b": "100px",
+                                "h_b": "200px",
+                                "bot_b": "0px",
+                                "lf_b": "0px",
+                                "w_h": "100px",
+                                "h_h": "50px",
+                                "bot_h": "309px",
+                                "lf_h": "0px",
+                                "bot_ctn": "-16vh",
+                                "lf_ctn": "40%"  
+                            }
                         }
                     }
                 ],
