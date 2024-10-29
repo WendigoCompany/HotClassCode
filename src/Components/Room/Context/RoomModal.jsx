@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { createContext, useContext, useState } from "react";
 import SpriteModal from "../Modals/SpriteModal";
+import BackgroundModal from "../Modals/BackgroundModal";
 
 
 export const RModalContext = createContext();
@@ -12,7 +13,12 @@ const modal_dict =[
     {
         id: 1,
         compo : <SpriteModal/>
-    }
+    },
+    {
+        id: 2,
+        compo : <BackgroundModal/>
+    },
+
 ];
 
 const RModalProvider = ({ children }) => {
