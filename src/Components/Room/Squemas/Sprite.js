@@ -29,6 +29,8 @@ export class SpriteObject {
         this.allowed = 0;
         this.device;
         this.cl_dict;
+        this.poses  = 1;
+
     }
 
     set_girl(girlID) {
@@ -68,6 +70,7 @@ export class SpriteObject {
         this.style_body_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
         this.allowed = this.skin_data.skin_allowed;
         this.cl_dict = this.skin_data.skin_dict;
+        this.poses=  this.skin_data.poses   
         
         try {
             setTimeout(() => {

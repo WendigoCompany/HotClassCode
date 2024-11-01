@@ -5,7 +5,7 @@ import { useSprite } from "../Context/Sprite.context";
 
 export default function SpriteModal() {
 
-    const { getSprite } = useSprite();
+    const { getSprite, spriteID,setSpriteID } = useSprite();
     const [allowed , setAllowed] = useState([0,0]);
 
     const sprite= getSprite(0);
@@ -28,6 +28,7 @@ export default function SpriteModal() {
                         <button
                         onClick={()=>{
                             pack[0] = i +1;
+                            spriteID.clt = pack
                             sprite.update_both(sprite.head, sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
                             // sprite.update_body(sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
                         }}
@@ -54,6 +55,8 @@ export default function SpriteModal() {
                         <button
                         onClick={()=>{
                             pack[1] = i +1;
+                            spriteID.clt = pack
+                            setSpriteID(spriteID)
                             sprite.update_both(sprite.head, sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
                             // sprite.update_body(sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
                         }}
@@ -76,6 +79,8 @@ export default function SpriteModal() {
                 <button 
                 onClick={()=>{
                     sprite.update_skin(i)
+                    spriteID.skin = i
+                    setSpriteID(spriteID)
                     if(sprite.allowed != allowed){
                         setAllowed(sprite.allowed)
                     }

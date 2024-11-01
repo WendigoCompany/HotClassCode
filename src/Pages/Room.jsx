@@ -15,6 +15,7 @@ import RModalProvider from "../Components/Room/Context/RoomModal";
 import AnimationControl from "../Components/Room/Control/Animation";
 import SexControl from "../Components/Room/Control/Sex";
 import HomeControl from "../Components/Room/Control/Home";
+import AnimationProvider from "../Components/Room/Context/AnimationContext";
 const girls = { en, es };
 
 
@@ -53,15 +54,16 @@ export default function Room() {
             <BackgroundProvider>
               <SpriteProvider sprites={sprites}>
                 <RModalProvider>
-                  <HomeControl/>
-                  <R_BackgroundCompo />
-                  <R_BackgroundControl />
-                  {sprites.map(sp => <Sprite sp={sp} />)}
-                  <SpriteControl sprites={sprites[0]} />
+                  <AnimationProvider>
+                    <HomeControl />
+                    <R_BackgroundCompo />
+                    <R_BackgroundControl />
+                    {sprites.map(sp => <Sprite sp={sp} />)}
+                    <SpriteControl sprites={sprites[0]} />
 
-                  <SexControl/>
-                  <AnimationControl/>
-
+                    <SexControl />
+                    <AnimationControl />
+                  </AnimationProvider>
                 </RModalProvider>
               </SpriteProvider>
             </BackgroundProvider>

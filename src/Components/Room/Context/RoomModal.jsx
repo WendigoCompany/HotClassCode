@@ -2,6 +2,7 @@
 import { createContext, useContext, useState } from "react";
 import SpriteModal from "../Modals/SpriteModal";
 import BackgroundModal from "../Modals/BackgroundModal";
+import SexModal from "../Modals/SexModal";
 
 
 export const RModalContext = createContext();
@@ -18,8 +19,13 @@ const modal_dict =[
         id: 2,
         compo : <BackgroundModal/>
     },
-
+    {
+        id: 3,
+        compo : <SexModal/>
+    },
 ];
+
+
 
 const RModalProvider = ({ children }) => {
 

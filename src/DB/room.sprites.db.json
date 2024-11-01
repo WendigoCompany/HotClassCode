@@ -63,6 +63,7 @@
                 ],
                 "poses": [
                     {
+                        "poseid": 0,    
                         "skin_allowed": [
                             3,
                             3
