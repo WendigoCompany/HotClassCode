@@ -3,6 +3,8 @@ import LangProvider from "./Context/lang_context";
 import Home from "./Pages/Home";
 import RouterApi from "./Router/ApiRouter";
 import "./Styles/main.css"
+import "./Utils/stop.react.shit.css"
+
 
 export default function App() {
 
@@ -20,3 +22,4 @@ export default function App() {
 
     </>
 }
+

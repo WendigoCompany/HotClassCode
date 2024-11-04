@@ -3,7 +3,7 @@ import { useRModal } from "../Context/RoomModal";
 
 export default function SexControl() {
     const { setModal } = useRModal();
-    const { setIsAnimation } = useAnimation();
+    // const { setIsAnimation } = useAnimation();
 
     return <div>
         <button onClick={() => {

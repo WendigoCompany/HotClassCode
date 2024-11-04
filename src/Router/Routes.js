@@ -5,6 +5,7 @@ import Profile from "../Pages/Profile";
 import Room from "../Pages/Room";
 import DisclaimRedirect from "../Components/Control/DisclaimRedirect";
 import LangRedirect from "../Components/Control/LangRedirect";
+import TestModule from "../Test/TestModule";
 
 
 
@@ -111,6 +112,14 @@ export default [
             <Room />
         </>,
         name: "Room"
+    },
+    {
+        path: `/test`,
+        e: <>
+            <DisclaimRedirect />
+            <TestModule />
+        </>,
+        name: "Test"
     },
 ].concat(build_redirections({
     middle: <>

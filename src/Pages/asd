@@ -1,0 +1,46 @@
+ {
+      girl && roomContent && Array.isArray(sprites)
+        ? <>
+          <PageContentProviver girl={girl} sprites={sprites}>
+            <BackgroundProvider>
+              <RModalProvider>
+                <HomeControl />
+                <R_BackgroundCompo />
+                <R_BackgroundControl />
+                {sprites.map(sp => <Sprite sp={sp} />)}
+              </RModalProvider>
+            </BackgroundProvider>
+          </PageContentProviver>
+
+
+
+
+          {/* <AllowedProvider>
+            <PageContentProviver girl={girl}>
+
+              <BackgroundProvider>RED
+
+                <SpriteProvider sprites={sprites}>
+                  <RModalProvider>
+                    <AnimationProvider>
+
+                      <HomeControl />RED
+                      <R_BackgroundCompo />RED
+
+                      <R_BackgroundControl /> RED
+                      {sprites.map(sp => <Sprite sp={sp} />)} RED
+                      <SpriteControl sprites={sprites[0]} /> red
+
+                      <SexControl />
+                      <AnimationControl />
+                    </AnimationProvider>
+                  </RModalProvider>
+                </SpriteProvider>
+              </BackgroundProvider>
+            </PageContentProviver>
+          </AllowedProvider> */}
+
+        </>
+        : ""
+
+    }

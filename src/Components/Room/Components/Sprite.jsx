@@ -163,10 +163,14 @@ export default function Sprite({ sp }) {
 
 
 
+
+
+
     // const sp = new spect(sp.spid);
-    sp.set_girl(girl.id)
+    // sp.set_girl(girl.id)
     sp.set_device(device)
-    sp.pre_load()
+
+    // sp.pre_load()
 
 
     // let skin = 0;
@@ -352,7 +356,7 @@ export default function Sprite({ sp }) {
 
     // const style_body_actual = { position: "absolute", bottom: conj_style.bot_b, width: conj_style.w_b, height: conj_style.h_b };
     // const style_body_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
-
+    sp.pre_load()
     useEffect(() => {
         // update_both(head, body)
         sp.update_both(sp.head, sp.body)

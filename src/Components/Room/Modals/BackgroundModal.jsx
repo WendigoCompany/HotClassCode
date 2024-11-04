@@ -40,61 +40,7 @@ export default function BackgroundModal() {
 
 
 
-    // if (sprite.allowed != allowed) {
-    //     setAllowed(sprite.allowed)
-    // }
-    // const allowed = sprite.allowed;
 
-
-    // const create_top_btns = () => {
-    //     const btns = [];
-    //     for (let i = 0; i < allowed[0]; i++) {
-    //         btns.push(
-    //             <>
-    //                 <td style={{ width: "1%" }}></td>
-    //                 <td >
-    //                     <button
-    //                         onClick={() => {
-    //                             pack[0] = i + 1;
-    //                             sprite.update_both(sprite.head, sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
-    //                             // sprite.update_body(sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
-    //                         }}
-    //                         className="r-btn-off r-btn-md">{i + 1}</button>
-    //                 </td>
-    //                 <td style={{ width: "1%" }}></td>
-
-    //             </>
-    //         )
-    //     }
-
-    //     return btns
-    // }
-
-
-
-    // const create_bot_btns = () => {
-    //     const btns = [];
-    //     for (let i = 0; i < allowed[1]; i++) {
-    //         btns.push(
-    //             <>
-    //                 <td style={{ width: "1%" }}></td>
-    //                 <td >
-    //                     <button
-    //                         onClick={() => {
-    //                             pack[1] = i + 1;
-    //                             sprite.update_both(sprite.head, sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
-    //                             // sprite.update_body(sprite.cl_dict.findIndex(d => d == pack.join().replace(",", "")))
-    //                         }}
-    //                         className="r-btn-off r-btn-md">{i + 1}</button>
-    //                 </td>
-    //                 <td style={{ width: "1%" }}></td>
-
-    //             </>
-    //         )
-    //     }
-
-    //     return btns
-    // }
 
     const create_backg_btns = () => {
         const btns = [];

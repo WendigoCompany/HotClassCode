@@ -1,9 +1,18 @@
 import SpriteData from "../../../DB/room.sprites.db.json"
 import spinnerGIF from "../../../Media/spinner-8565_256.gif"
 
+import img_handjob from "../../../Media/poses/handjob.png";
+// import SpriteData from "../../../DB/Room/tokisaki_kurumi.room.db.json"
+
+
+const btns_avariables = [
+    { id: "handjob", img: img_handjob }
+];
+
 /* eslint-disable */
 export class SpriteObject {
-    constructor(spid) {
+
+    constructor(wid) {
         this.skins;
         this.girlID;
         this.skin = 0;
@@ -25,12 +34,18 @@ export class SpriteObject {
         this.style_head_hidden = undefined;
         this.style_body_actual = undefined;
         this.style_body_hidden = undefined;
-        this.spid = spid;
+        this.wid = wid;
         this.allowed = 0;
         this.device;
-        this.cl_dict;
-        this.poses  = 1;
 
+        this.poses = 1;
+        this.pmemory = {};
+        this.poses_btn = [];
+
+
+
+
+        this.room_data = undefined;
     }
 
     set_girl(girlID) {
@@ -41,9 +56,13 @@ export class SpriteObject {
         this.device = device;
     }
 
+    set_room_data(data) {
+        this.room_data = data;
+    }
+
     kill_spinner() {
         try {
-            document.getElementById("spinner-img").remove()
+            document.getElementById("spinner").textContent = "";
         } catch (error) {
 
         }
@@ -51,18 +70,79 @@ export class SpriteObject {
 
     roll_spiner() {
         // document.getElementById("spinner").append()
-        const spinner = document.createElement("img");
-        spinner.id = "spinner-img";
-        spinner.src = spinnerGIF;
-        spinner.className = "w-100 h-100";
-        document.getElementById("spinner").append(spinner)
+        let int = setInterval(() => {
+            try {
+                const spinner = document.createElement("img");
+                spinner.id = "spinner-img";
+                spinner.src = spinnerGIF;
+                spinner.className = "w-100 h-100";
+                document.getElementById("spinner").append(spinner)
+                clearInterval(int)
+            } catch (error) {
+
+            }
+        }, 100);;
     }
 
+
+
+    init() {
+        this.sprite_data = this.room_data.skins[this.skin]        
+        this.skins = this.room_data.skins.length;
+        this.allowed = this.sprite_data.skin_allowed;
+        this.skin_dict = this.sprite_data.skin_dict;
+        try {
+            this.poses = this.sprite_data.poses
+            this.sprite_data.poses.map(p => {
+                this.poses_btn.push(btns_avariables.filter(btna => btna.id == p.poseicon)[0].img)
+            })
+        } catch (error) {
+            console.log(error);
+
+        }
+
+        // if(data){
+        //     this.roll_spiner()
+        //     switch (this.wid) {
+        //         case 0:
+        //             this.room_data =data;
+        //             this.sprite_data = this.room_data.skins[0]
+        //             this.skins = this.room_data.skins.length;
+        //             this.conj_data = this.sprite_data.conj.filter(c => c.conjid == this.conj)[0];
+        //         // const data =(await import('../../../DB/Room/tokisaki_kurumi.room.db.json')).default
+        //         // this.room_data = data;
+        //         // this.sprite_data = this.room_data.skins[0]
+        //         // this.skins = this.room_data.skins.length;
+        //         // this.conj_data = this.sprite_data.conj.filter(c => c.conjid == this.conj)[0];
+
+        //         // return true
+
+        //         default:
+        //             break;
+        //     }
+        // }
+
+    }
+
+
     pre_load() {
-        this.sprite_data = SpriteData.filter(w => w.wid == this.girlID)[0];
-        this.skins = this.sprite_data.skins.length;
-        this.skin_data = this.sprite_data.skins.filter(s => s.sid == this.skin)[0];
-        this.conj_data = this.skin_data.conj.filter(c => c.conjid == this.conj)[0];
+
+        this.conj_data = this.sprite_data.conj.filter(c => c.conjid == this.conj)[0];
+        this.conj_style = this.sprite_data.conj_stl.filter(cjstl => cjstl.conjs.indexOf(this.conj) != -1)[0].st[this.device];
+        this.style_head_actual = { position: "absolute", bottom: this.conj_style.bot_h, width: this.conj_style.w_h, height: this.conj_style.h_h };
+        this.style_head_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
+        this.style_body_actual = { position: "absolute", bottom: this.conj_style.bot_b, width: this.conj_style.w_b, height: this.conj_style.h_b };
+        this.style_body_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
+
+
+
+    }
+
+    pre_load2() {
+        // this.sprite_data = SpriteData.filter(w => w.wid == this.girlID)[0];
+        // this.skins = this.sprite_data.skins.length;
+        // this.skin_data = this.sprite_data.skins.filter(s => s.sid == this.skin)[0];
+        // this.conj_data = this.skin_data.conj.filter(c => c.conjid == this.conj)[0];
         this.conj_style = this.skin_data.conj_stl.filter(cjstl => cjstl.conjs.indexOf(this.conj) != -1)[0].st[this.device];
         this.style_head_actual = { position: "absolute", bottom: this.conj_style.bot_h, width: this.conj_style.w_h, height: this.conj_style.h_h };
         this.style_head_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
@@ -70,36 +150,57 @@ export class SpriteObject {
         this.style_body_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
         this.allowed = this.skin_data.skin_allowed;
         this.cl_dict = this.skin_data.skin_dict;
-        this.poses=  this.skin_data.poses   
-        
         try {
-            setTimeout(() => {
-                               
-        document.getElementById("r-sp-ctn").style.bottom = this.conj_style.bot_ctn;
-        document.getElementById("r-sp-ctn").style.left = this.conj_style.lf_ctn;
-            }, 100);
+            this.poses = this.skin_data.poses
+            this.skin_data.poses.map(p => {
+                this.poses_btn.push(btns_avariables.filter(btna => btna.id == p.poseicon)[0].img)
+            })
         } catch (error) {
-            
+            console.log(error);
+
         }
 
-        
+        // this.poses_btn =this.skin_data.poses.map(p => p.poseicon).map;
+
+
+        this.poses_herecy()
+        try {
+            setTimeout(() => {
+
+                document.getElementById("r-sp-ctn").style.bottom = this.conj_style.bot_ctn;
+                document.getElementById("r-sp-ctn").style.left = this.conj_style.lf_ctn;
+            }, 100);
+        } catch (error) {
+
+        }
+
+
+    }
+
+    poses_herecy() {
+        let memory = [];
+        this.poses.methods = {
+            create_sprite_holders: () => {
+                const container = document.getElementById("");
+            }
+        }
     }
 
     get_skins_preview() {
-        return this.sprite_data.skins.map(ski => ski.conj[0].b[0])
+
+        return this.room_data.skins.map(ski => ski.conj[0].b[0])
 
     }
 
     update_skin(new_skin_id) {
         this.kill_spinner()
-        this.roll_spiner()
         this.conj = 0;
         this.head = 0;
         this.body = 0;
         this.skin = new_skin_id;
-        this.update_both(0, 0)
+        this.init()
         this.pre_load()
-
+        this.update_both(0, 0)
     }
 
     update_body(new_body_id) {
@@ -153,11 +254,12 @@ export class SpriteObject {
         this.roll_spiner()
 
 
+
         document.getElementById(`sp-head-${this.spid}-${0}`).style.opacity = 0;
         document.getElementById(`sp-head-${this.spid}-${1}`).style.opacity = 0;
         document.getElementById(`sp-body-${this.spid}-${0}`).style.opacity = 0;
         document.getElementById(`sp-body-${this.spid}-${1}`).style.opacity = 0;
-        
+
         const newh = (this.actual_head == 0) ? (1) : (0);
         const oldh = (newh == 0) ? (1) : (0);
         this.head = new_head_id;

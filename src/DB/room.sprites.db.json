@@ -63,10 +63,70 @@
                 ],
                 "poses": [
                     {
-                        "poseid": 0,    
+                        "poseid": 0,
+                        "poseicon": "handjob",
+                        "conj": [
+                            {
+                                "conjid": 0,
+                                "conjlen": 2,
+                                "b": [
+                                    [
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQSPLZ285mf4Rq_EmDmsQFhtAfjci28yVVPJIiuKcMy4xDc",
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQRm6LGA3ZsOR7c4G5GC6ay1AR0QMDsrHwJHJCLK5v_9HYo"
+                                    ],
+                                    [
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQThve6BQIGPQLwSFpQ0fVSEAdKGkY64R-1ZZXHVCz_qsfk",
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQQdnvwejlpTRo_g10yeMNAtAQZbx6WpkTjHVlTB_5jNDy8"
+                                    ],
+                                    [
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQTgrTM9N5trSqd1PWmB-9J9AejOYKVHmUrHBhWxWCjgIIY",
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQQLUiZm7Qk_Rq6uilPVQt8NAYCD7msrc3WrtkRtZBCfHbY"
+                                    ]
+                                ],
+                                "h": []
+                            },
+                            {
+                                "conjid": 1,
+                                "conjlen": 2,
+                                "b": [
+                                    [
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQTQB5zFshWhSqJ5zhqINf7hAbCITSuU9NM2MbWjjjlh6ns",
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQT7pZAWdPyYQbVb4xH-xMlXAc85vZAWC04Eyv6kc69JaQ0"
+                                    ],
+                                    [
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQTdirGqrtqARoUBbOjhXTN3AUiZGHSINbhWU26kUmlkic8",
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQQnFCWeKvWkQ7fYggdK3ZGlAfGYbX4uF-26LOQov6EzlzQ"
+                                    ],
+                                    [
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQQ4ziljaeSmQJwoX6piAMlhAXKzWsfgKtvf-bSES_42CZs",
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQROFEm_WQGkT4y3XMMq7WQQATCqJdymzUW7gWgxwBSjVu8"
+                                    ]
+                                ],
+                                "h": []
+                            },
+                            {
+                                "conjid": 2,
+                                "conjlen": 2,
+                                "b": [
+                                    [
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQRdxjJkwL8FSJJ8siGyvTroAXQHc6tVQrieORIRKiMz_7A",
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQSJ6pK9NqgwRq3qck1WgkxLAYuZGFHudnhazXPeij7qB4o"
+                                    ],
+                                    [
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQS1w7odHf5ZQZoy0W0IgkqiATfc50R8VjH5Ke4Zg5i6zYM",
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQTkE5--UwEFSIT9VcNn2JtLAY5KfjRwJHK8AfcaE5gXQkg"
+                                    ],
+                                    [
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQRMdasEpU9VT6in2KEHuNP8AaDDNlsz8FSoM5Iibf52Fn0",
+                                        "https://1drv.ms/i/c/292ca9915b33b64d/IQRw3ARSjCFKQJFk50LynOpzAc5QyylHMkJo1d4Z7G3I-rg"
+                                    ]
+                                ],
+                                "h": []
+                            }
+                        ],
                         "skin_allowed": [
                             3,
-                            3
+                            0
                         ]
                     }
                 ],
@@ -116,7 +176,7 @@
                                 "bot_h": "505.5px",
                                 "lf_h": "0px",
                                 "bot_ctn": "-7vh",
-                                "lf_ctn": "15vw" 
+                                "lf_ctn": "15vw"
                             }
                         }
                     }
