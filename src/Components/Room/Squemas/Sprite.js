@@ -46,6 +46,11 @@ export class SpriteObject {
         this.animation_interval = undefined
         this.animation_allowed = undefined
         this.animation_dict = undefined
+        this.animation_var = 0
+        this.animation_speed = 1000
+        this.animation_actual_head = 0;
+        this.animation_actual_body = 0;
+        this.animation_content = []
 
         this.room_data = undefined;
     }
@@ -92,7 +97,7 @@ export class SpriteObject {
         setTimeout(() => {
             this.kill_spinner()
         }, 10000);
-        this.sprite_data = this.room_data.skins[this.skin]        
+        this.sprite_data = this.room_data.skins[this.skin]
         this.skins = this.room_data.skins.length;
         this.allowed = this.sprite_data.skin_allowed;
         this.skin_dict = this.sprite_data.skin_dict;
@@ -100,17 +105,17 @@ export class SpriteObject {
             this.poses = this.sprite_data.poses
             this.poses_btn = []
             this.sprite_data.poses.map(p => {
-                
-       
-                const found  = btns_avariables.filter(btna => btna.id == p.poseid)[0];
-                if(found){                    
+
+
+                const found = btns_avariables.filter(btna => btna.id == p.poseid)[0];
+                if (found) {
                     this.poses_btn.push(found)
                 }
             })
-            
+
         } catch (error) {
             console.log(error);
-        
+
         }
 
         // if(data){
@@ -136,47 +141,106 @@ export class SpriteObject {
 
     }
 
-    init_pose(animation , conj = 0){
+    init_pose(animation, conj = 0) {
         this.actual_pose = this.poses.filter(p => p.poseid == animation)[0];
         this.actual_pose_conj = conj
         this.animate()
-        
+
     }
 
-    animate(){
+    animate() {
         this.roll_spiner()
         const cont = document.getElementById("animation-cont");
         try {
-            
-            cont.style.opacity =0
-            setTimeout(() => {
-                cont.textContent = "";
-                console.log(this.actual_pose);
-                
-                const pose_data = this.actual_pose.conj.filter(cj => cj.conjid == this.actual_pose_conj)[0];
-                this.animation_allowed =pose_data.skin_allowed;
-                this.animation_dict =pose_data.skin_dict;
 
-                
-                this.kill_spinner()
+            cont.style.opacity = 0
+            setTimeout(() => {
+                cont.style.opacity = 1;
+                cont.textContent = "";
+
+                this.animation_content = this.actual_pose.conj.filter(cj => cj.conjid == this.actual_pose_conj)[0];
+                this.animation_allowed = this.animation_content.skin_allowed;
+                this.animation_dict = this.animation_content.skin_dict;
+
+                this.load_animation()
+   
             }, 500);
         } catch (error) {
             console.log(error);
             this.kill_spinner()
-        } 
+        }
+    }
+
+
+    reload_img =(compo , img_bo, state, i)=>{
+        compo.src = img_bo[i];
+
+        
+        compo.onload=()=>{
+            state[i] = true
+        }
+        compo.onerror=(err)=>{
+            setTimeout(() => {
+                console.log(err);
+                console.log("err anim");  
+                this.reload_img(compo , img_bo, state, i)
+            }, 500);
+        }
+    }
+
+    load_animation() {
+        const cont = document.getElementById("animation-cont");
+        const images = this.animation_change_var(this.animation_var);
+        const len = images.len;
+        const images_state =[]; 
+        for (let i = 0; i < len; i++) {
+            const image_compo = document.createElement("img");
+            image_compo.id = `ani-img-${i +1 }`;
+            image_compo.style.opacity =0;
+            // image_compo.src = images.b[i];
+            this.reload_img(image_compo,  images.b[this.animation_actual_body] ,images_state , i)
+            images_state.push(false)
+            cont.append(image_compo)
+        }
+        this.kill_spinner()
+
+        let loaded = setInterval(() => {
+                let validator = true;
+                images_state.map(vl => validator = validator && vl)
+                if(validator){
+                     document.getElementById(`ani-img-${1}`).style.opacity = 1;
+                     clearInterval(loaded)
+                }
+                
+        }, 10);;
+
+        this.start_animation()
+        // clearInterval(this.animation_interval)
+        // this.animatioon_interval = setInterval(() => {
+
+        // }, animation_speed);
+    }
+
+    start_animation(){
+
+    }
+
+    animation_change_speed() {
+
+    }
+
+
+    animation_change_var(vari) {        
+        return  this.animation_content.var[vari];
     }
 
     pre_load() {
-
         this.conj_data = this.sprite_data.conj.filter(c => c.conjid == this.conj)[0];
         this.conj_style = this.sprite_data.conj_stl.filter(cjstl => cjstl.conjs.indexOf(this.conj) != -1)[0].st[this.device];
         this.style_head_actual = { position: "absolute", bottom: this.conj_style.bot_h, width: this.conj_style.w_h, height: this.conj_style.h_h };
         this.style_head_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
         this.style_body_actual = { position: "absolute", bottom: this.conj_style.bot_b, width: this.conj_style.w_b, height: this.conj_style.h_b };
         this.style_body_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
-
-
-
     }
 
     // pre_load2() {
@@ -218,21 +282,19 @@ export class SpriteObject {
 
     // }
 
-/*
-    poses_herecy() {
-        let memory = [];
-        this.poses.methods = {
-            create_sprite_holders: () => {
-                const container = document.getElementById("");
+    /*
+        poses_herecy() {
+            let memory = [];
+            this.poses.methods = {
+                create_sprite_holders: () => {
+                    const container = document.getElementById("");
+                }
             }
         }
-    }
-*/
+    */
 
     get_skins_preview() {
-
         return this.room_data.skins.map(ski => ski.conj[0].b[0])
-
     }
 
     update_skin(new_skin_id) {

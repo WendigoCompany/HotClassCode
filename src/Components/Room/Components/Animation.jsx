@@ -7,7 +7,15 @@ export default function AnimationCompo (){
     const {sprites} = usePageContent();
     const sprite =sprites[0];
     if(isAnimation){
-        sprite.init_pose(animation)
+        let intert = setInterval(() => {
+          try {
+            sprite.init_pose(animation)
+            clearInterval(intert)
+          } catch (error) {
+            
+          }
+            
+        }, 30);;
         document.getElementById("spray-container").style.opacity  = 0;
     }else{
         try {
@@ -18,10 +26,10 @@ export default function AnimationCompo (){
     }
     return <>
     {
-        (isAnimation) ? ("") : (<>
-        <div id="animation-cont" style={{transition: "opacity .5s"}}>
+        (isAnimation) ? (      <div id="animation-cont" style={{transition: "opacity .5s"}}>
 
-            </div> 
+            </div> ) : (<>
+  
         </>)
     }
     </>
