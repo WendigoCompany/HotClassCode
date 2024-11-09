@@ -9,6 +9,7 @@ const btns_avariables = [
     { id: 0, img: img_handjob }
 ];
 
+
 /* eslint-disable */
 export class SpriteObject {
 
@@ -47,11 +48,14 @@ export class SpriteObject {
         this.animation_allowed = undefined
         this.animation_dict = undefined
         this.animation_var = 0
-        this.animation_speed = 1000
+        this.animation_speed = 0
         this.animation_actual_head = 0;
         this.animation_actual_body = 0;
         this.animation_content = []
+        this.animation_trans = 0.3;
+        this.animation_limit = 0;
 
+        this.animation_speeds = [1000, 750, 500, 250];
         this.room_data = undefined;
     }
 
@@ -76,7 +80,6 @@ export class SpriteObject {
     }
 
     roll_spiner() {
-        // document.getElementById("spinner").append()
         let int = setInterval(() => {
             try {
                 const spinner = document.createElement("img");
@@ -118,37 +121,25 @@ export class SpriteObject {
 
         }
 
-        // if(data){
-        //     this.roll_spiner()
-        //     switch (this.wid) {
-        //         case 0:
-        //             this.room_data =data;
-        //             this.sprite_data = this.room_data.skins[0]
-        //             this.skins = this.room_data.skins.length;
-        //             this.conj_data = this.sprite_data.conj.filter(c => c.conjid == this.conj)[0];
-        //         // const data =(await import('../../../DB/Room/tokisaki_kurumi.room.db.json')).default
-        //         // this.room_data = data;
-        //         // this.sprite_data = this.room_data.skins[0]
-        //         // this.skins = this.room_data.skins.length;
-        //         // this.conj_data = this.sprite_data.conj.filter(c => c.conjid == this.conj)[0];
 
-        //         // return true
-
-        //         default:
-        //             break;
-        //     }
-        // }
 
     }
 
     init_pose(animation, conj = 0) {
+        this.stop_animation()
         this.actual_pose = this.poses.filter(p => p.poseid == animation)[0];
         this.actual_pose_conj = conj
         this.animate()
 
     }
 
+
+    stop_animation() {
+        clearInterval(this.animation_interval)
+    }
+
     animate() {
+        this.stop_animation()
         this.roll_spiner()
         const cont = document.getElementById("animation-cont");
         try {
@@ -163,27 +154,27 @@ export class SpriteObject {
                 this.animation_dict = this.animation_content.skin_dict;
 
                 this.load_animation()
-   
+
             }, 500);
         } catch (error) {
             console.log(error);
-            this.kill_spinner()
+
         }
     }
 
 
-    reload_img =(compo , img_bo, state, i)=>{
+    reload_img = (compo, img_bo, state, i) => {
         compo.src = img_bo[i];
 
-        
-        compo.onload=()=>{
+
+        compo.onload = () => {
             state[i] = true
         }
-        compo.onerror=(err)=>{
+        compo.onerror = (err) => {
             setTimeout(() => {
                 console.log(err);
-                console.log("err anim");  
-                this.reload_img(compo , img_bo, state, i)
+                console.log("err anim");
+                this.reload_img(compo, img_bo, state, i)
             }, 500);
         }
     }
@@ -191,37 +182,68 @@ export class SpriteObject {
     load_animation() {
         const cont = document.getElementById("animation-cont");
         const images = this.animation_change_var(this.animation_var);
-        const len = images.len;
-        const images_state =[]; 
-        for (let i = 0; i < len; i++) {
+        this.animation_limit = images.len
+        const images_state = [];
+        for (let i = 0; i < this.animation_limit; i++) {
             const image_compo = document.createElement("img");
-            image_compo.id = `ani-img-${i +1 }`;
-            image_compo.style.opacity =0;
-            // image_compo.src = images.b[i];
-            this.reload_img(image_compo,  images.b[this.animation_actual_body] ,images_state , i)
+            image_compo.id = `ani-img-${i}`;
+            image_compo.style.opacity = 1;
+            image_compo.style.transition = `opacity ${this.animation_trans}s`;
+            Object.keys(images.st).map(k => {
+                image_compo.style[k] = images.st[k]
+            })
+            this.reload_img(image_compo, images.b[this.animation_actual_body], images_state, i)
             images_state.push(false)
             cont.append(image_compo)
         }
-        this.kill_spinner()
+
 
         let loaded = setInterval(() => {
-                let validator = true;
-                images_state.map(vl => validator = validator && vl)
-                if(validator){
-                     document.getElementById(`ani-img-${1}`).style.opacity = 1;
-                     clearInterval(loaded)
-                }
-                
+            let validator = true;
+            images_state.map(vl => validator = validator && vl)
+            if (validator) {
+                document.getElementById(`ani-img-${0}`).style.opacity = 1;
+                clearInterval(loaded)
+                this.kill_spinner()
+                this.start_animation()
+            }
+
         }, 10);;
 
-        this.start_animation()
+
         // clearInterval(this.animation_interval)
         // this.animatioon_interval = setInterval(() => {
 
         // }, animation_speed);
     }
 
-    start_animation(){
+    start_animation() {
+        let i = 1;
+        let prev = i;
+        let rev = false;
+        this.animation_interval = setInterval(() => {
+            prev = i
+            if (i == this.animation_limit - 1) {
+                rev = true
+                i -= 1
+            } else if (i == 0) {
+                rev = false
+                i += 1
+            } else {
+                if (rev) {
+                    i -= 1
+                } else {
+                    i += 1
+                }
+            }
+
+            document.getElementById(`ani-img-${i}`).style.opacity = 1;
+            setTimeout(() => {
+                document.getElementById(`ani-img-${prev}`).style.opacity = 0;
+            }, (this.animation_trans / 2) * 1000);
+        }, this.animation_speeds[this.animation_speed]);;
+
+
 
     }
 
@@ -229,9 +251,13 @@ export class SpriteObject {
 
     }
 
+    animation_get_var() {
+        return this.animation_content.var;
 
-    animation_change_var(vari) {        
-        return  this.animation_content.var[vari];
+    }
+
+    animation_change_var(vari) {
+        return this.animation_content.var[vari];
     }
 
     pre_load() {

@@ -31,24 +31,37 @@ export default function SpriteModal() {
         }
 
 
-        content___create_bot_btns = () => {
-
+        content___create_bot_btns = (i) => {
+            pack[1] = i +1;
+            setPack(pack)
+            const index = sprite.animation_dict.findIndex(dict => dict == pack.join(",").replace(",", ""))
+            sprite.animation_actual_body =index
+            sprite.animate()
         }
 
 
-        content___create_top_btns = () => {
+        content___create_top_btns = (i) => {
+            pack[0] = i +1;
+            setPack(pack)
+            const index = sprite.animation_dict.findIndex(dict => dict == pack.join(",").replace(",", ""))
+            sprite.animation_actual_body =index
+            sprite.animate()
 
         }
 
 
     } else {
-        content___create_bot_btns = () => {
-
+        content___create_bot_btns = (i) => {
+            pack[1] = i + 1;
+            setPack(pack)
+            sprite.update_both(sprite.head, sprite.skin_dict.findIndex(dict => dict == pack.join(",").replace(",", "")))
         }
 
 
-        content___create_top_btns = () => {
-
+        content___create_top_btns = (i) => {
+            pack[0] = i + 1;
+            setPack(pack)
+            sprite.update_both(sprite.head, sprite.skin_dict.findIndex(dict => dict == pack.join(",").replace(",", "")))
         }
 
 
@@ -63,6 +76,7 @@ export default function SpriteModal() {
             btns.push(
                 <button
                     onClick={() => {
+                        sprite.stop_animation()
                         sprite.skin = i
                         sprite.update_skin(i)
                         setIsAnimation(false)
@@ -90,9 +104,7 @@ export default function SpriteModal() {
                     <td >
                         <button
                             onClick={() => {
-                                pack[0] = i + 1;
-                                setPack(pack)
-                                sprite.update_both(sprite.head, sprite.skin_dict.findIndex(dict => dict == pack.join(",").replace(",", "")))
+                                content___create_top_btns(i)
                             }}
                             className="r-btn-off r-btn-md">{i + 1}</button>
                     </td>
@@ -115,9 +127,7 @@ export default function SpriteModal() {
                     <td >
                         <button
                             onClick={() => {
-                                pack[1] = i + 1;
-                                setPack(pack)
-                                sprite.update_both(sprite.head, sprite.skin_dict.findIndex(dict => dict == pack.join(",").replace(",", "")))
+                                content___create_bot_btns(i)
                             }}
                             className="r-btn-off r-btn-md">{i + 1}</button>
                     </td>

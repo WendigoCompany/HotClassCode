@@ -92,7 +92,7 @@
                                             "https://1drv.ms/i/c/292ca9915b33b64d/IQQLUiZm7Qk_Rq6uilPVQt8NAYCD7msrc3WrtkRtZBCfHbY"
                                         ]
                                     ],
-                                    "st": {},
+                                    "st": {"position": "absolute", "width": "300px", "top": "10px", "left": "20px"},
                                     "len": 2,
                                     "h": []
                                 },
@@ -111,7 +111,7 @@
                                             "https://1drv.ms/i/c/292ca9915b33b64d/IQROFEm_WQGkT4y3XMMq7WQQATCqJdymzUW7gWgxwBSjVu8"
                                         ]
                                     ],
-                                    "st": {},
+                                             "st": {"position": "absolute", "width": "300px", "top": "10px", "left": "20px"},
                                     "len": 2,
                                     "h": []
                                 },
@@ -130,7 +130,7 @@
                                             "https://1drv.ms/i/c/292ca9915b33b64d/IQRw3ARSjCFKQJFk50LynOpzAc5QyylHMkJo1d4Z7G3I-rg"
                                         ]
                                     ],
-                                    "st": {},
+                                             "st": {"position": "absolute", "width": "300px", "top": "10px", "left": "20px"},
                                     "len": 2,
                                     "h": []
                                 }

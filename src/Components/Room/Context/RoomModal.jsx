@@ -3,6 +3,7 @@ import { createContext, useContext, useState } from "react";
 import SpriteModal from "../Modals/SpriteModal";
 import BackgroundModal from "../Modals/BackgroundModal";
 import SexModal from "../Modals/SexModal";
+import AnimationModal from "../Modals/AnimationModal";
 
 
 export const RModalContext = createContext();
@@ -22,6 +23,10 @@ const modal_dict =[
     {
         id: 3,
         compo : <SexModal/>
+    },
+    {
+        id: 4,
+        compo : <AnimationModal/>
     },
 ];
 
