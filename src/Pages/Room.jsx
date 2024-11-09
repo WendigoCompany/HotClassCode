@@ -6,8 +6,6 @@ import en from "../DB/manifiest.en.json"
 import es from "../DB/manifiest.es.json"
 import { useRMeta } from "../Router/MetaContext";
 import R_BackgroundControl from "../Components/Room/Control/Background";
-import SpriteProvider from "../Components/Room/Context/Sprite.context";
-import Sprite from "../Components/Room/Components/Sprite";
 import PageContentProviver from "../Context/page_content";
 import { SpriteObject } from "../Components/Room/Squemas/Sprite";
 import SpriteControl from "../Components/Room/Control/Sprite";
@@ -19,6 +17,7 @@ import AnimationProvider from "../Components/Room/Context/AnimationContext";
 import AllowedProvider from "../Components/Room/Context/SkinAllowed";
 import { useState } from "react";
 import ScreenProvider from "../Components/Room/Context/ScreenContext";
+import AnimationCompo from "../Components/Room/Components/Animation";
 
 const girls = { en, es };
 
@@ -62,23 +61,26 @@ export default function Room() {
 
         if (!loaded) {
           setRoomContent(<>
-
-            <PageContentProviver girl={girl} sprites={sprites}>
-              <AllowedProvider allow={sprites[0].allowed}>
-                <BackgroundProvider>
-                  <RModalProvider>
-                    <ScreenProvider sprites={sprites}>
-                      <HomeControl />
-                      <R_BackgroundCompo />
-                      <R_BackgroundControl />
-                      <SexControl />
-                      {/* {sprites.map(sp => <Sprite sp={sp} />)} */}
-                      <SpriteControl sprites={sprites[0]} />
-                    </ScreenProvider>
-                  </RModalProvider>
-                </BackgroundProvider>
-              </AllowedProvider>
-            </PageContentProviver>
+            <AnimationProvider>
+              <PageContentProviver girl={girl} sprites={sprites}>
+                <AllowedProvider allow={sprites[0].allowed}>
+                  <BackgroundProvider>
+                    <RModalProvider>
+                      <ScreenProvider sprites={sprites}>
+                        <HomeControl />
+                        <R_BackgroundCompo />
+                        <R_BackgroundControl />
+                        <SexControl />
+                        <AnimationControl />
+                        {/* {sprites.map(sp => <Sprite sp={sp} />)} */}
+                        <SpriteControl sprites={sprites[0]} />
+                        <AnimationCompo />
+                      </ScreenProvider>
+                    </RModalProvider>
+                  </BackgroundProvider>
+                </AllowedProvider>
+              </PageContentProviver>
+            </AnimationProvider>
           </>)
           setLoaded(true)
         }

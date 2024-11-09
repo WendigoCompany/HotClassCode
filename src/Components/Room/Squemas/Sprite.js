@@ -6,7 +6,7 @@ import img_handjob from "../../../Media/poses/handjob.png";
 
 
 const btns_avariables = [
-    { id: "handjob", img: img_handjob }
+    { id: 0, img: img_handjob }
 ];
 
 /* eslint-disable */
@@ -41,9 +41,11 @@ export class SpriteObject {
         this.poses = 1;
         this.pmemory = {};
         this.poses_btn = [];
-
-
-
+        this.actual_pose = undefined;
+        this.actual_pose_conj = undefined
+        this.animation_interval = undefined
+        this.animation_allowed = undefined
+        this.animation_dict = undefined
 
         this.room_data = undefined;
     }
@@ -87,18 +89,28 @@ export class SpriteObject {
 
 
     init() {
+        setTimeout(() => {
+            this.kill_spinner()
+        }, 10000);
         this.sprite_data = this.room_data.skins[this.skin]        
         this.skins = this.room_data.skins.length;
         this.allowed = this.sprite_data.skin_allowed;
         this.skin_dict = this.sprite_data.skin_dict;
         try {
             this.poses = this.sprite_data.poses
+            this.poses_btn = []
             this.sprite_data.poses.map(p => {
-                this.poses_btn.push(btns_avariables.filter(btna => btna.id == p.poseicon)[0].img)
+                
+       
+                const found  = btns_avariables.filter(btna => btna.id == p.poseid)[0];
+                if(found){                    
+                    this.poses_btn.push(found)
+                }
             })
+            
         } catch (error) {
             console.log(error);
-
+        
         }
 
         // if(data){
@@ -124,6 +136,35 @@ export class SpriteObject {
 
     }
 
+    init_pose(animation , conj = 0){
+        this.actual_pose = this.poses.filter(p => p.poseid == animation)[0];
+        this.actual_pose_conj = conj
+        this.animate()
+        
+    }
+
+    animate(){
+        this.roll_spiner()
+        const cont = document.getElementById("animation-cont");
+        try {
+            
+            cont.style.opacity =0
+            setTimeout(() => {
+                cont.textContent = "";
+                console.log(this.actual_pose);
+                
+                const pose_data = this.actual_pose.conj.filter(cj => cj.conjid == this.actual_pose_conj)[0];
+                this.animation_allowed =pose_data.skin_allowed;
+                this.animation_dict =pose_data.skin_dict;
+
+                
+                this.kill_spinner()
+            }, 500);
+        } catch (error) {
+            console.log(error);
+            this.kill_spinner()
+        } 
+    }
 
     pre_load() {
 
@@ -138,45 +179,46 @@ export class SpriteObject {
 
     }
 
-    pre_load2() {
-        // this.sprite_data = SpriteData.filter(w => w.wid == this.girlID)[0];
-        // this.skins = this.sprite_data.skins.length;
-        // this.skin_data = this.sprite_data.skins.filter(s => s.sid == this.skin)[0];
-        // this.conj_data = this.skin_data.conj.filter(c => c.conjid == this.conj)[0];
-        this.conj_style = this.skin_data.conj_stl.filter(cjstl => cjstl.conjs.indexOf(this.conj) != -1)[0].st[this.device];
-        this.style_head_actual = { position: "absolute", bottom: this.conj_style.bot_h, width: this.conj_style.w_h, height: this.conj_style.h_h };
-        this.style_head_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
-        this.style_body_actual = { position: "absolute", bottom: this.conj_style.bot_b, width: this.conj_style.w_b, height: this.conj_style.h_b };
-        this.style_body_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
-        this.allowed = this.skin_data.skin_allowed;
-        this.cl_dict = this.skin_data.skin_dict;
-        try {
-            this.poses = this.skin_data.poses
-            this.skin_data.poses.map(p => {
-                this.poses_btn.push(btns_avariables.filter(btna => btna.id == p.poseicon)[0].img)
-            })
-        } catch (error) {
-            console.log(error);
+    // pre_load2() {
+    //     // this.sprite_data = SpriteData.filter(w => w.wid == this.girlID)[0];
+    //     // this.skins = this.sprite_data.skins.length;
+    //     // this.skin_data = this.sprite_data.skins.filter(s => s.sid == this.skin)[0];
+    //     // this.conj_data = this.skin_data.conj.filter(c => c.conjid == this.conj)[0];
+    //     this.conj_style = this.skin_data.conj_stl.filter(cjstl => cjstl.conjs.indexOf(this.conj) != -1)[0].st[this.device];
+    //     this.style_head_actual = { position: "absolute", bottom: this.conj_style.bot_h, width: this.conj_style.w_h, height: this.conj_style.h_h };
+    //     this.style_head_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
+    //     this.style_body_actual = { position: "absolute", bottom: this.conj_style.bot_b, width: this.conj_style.w_b, height: this.conj_style.h_b };
+    //     this.style_body_hidden = { position: "absolute", bottom: "0px", left: "0px", width: "0px", height: "0px" };
+    //     this.allowed = this.skin_data.skin_allowed;
+    //     this.cl_dict = this.skin_data.skin_dict;
+    //     try {
+    //         this.poses = this.skin_data.poses
+    //         this.skin_data.poses.map(p => {
+    //             this.poses_btn.push(btns_avariables.filter(btna => btna.id == p.poseicon)[0].img)
+    //         })
+    //     } catch (error) {
+    //         console.log(error);
 
-        }
+    //     }
 
-        // this.poses_btn =this.skin_data.poses.map(p => p.poseicon).map;
-
-
-        this.poses_herecy()
-        try {
-            setTimeout(() => {
-
-                document.getElementById("r-sp-ctn").style.bottom = this.conj_style.bot_ctn;
-                document.getElementById("r-sp-ctn").style.left = this.conj_style.lf_ctn;
-            }, 100);
-        } catch (error) {
-
-        }
+    //     // this.poses_btn =this.skin_data.poses.map(p => p.poseicon).map;
 
 
-    }
+    //     this.poses_herecy()
+    //     try {
+    //         setTimeout(() => {
 
+    //             document.getElementById("r-sp-ctn").style.bottom = this.conj_style.bot_ctn;
+    //             document.getElementById("r-sp-ctn").style.left = this.conj_style.lf_ctn;
+    //         }, 100);
+    //     } catch (error) {
+
+    //     }
+
+
+    // }
+
+/*
     poses_herecy() {
         let memory = [];
         this.poses.methods = {
@@ -185,6 +227,7 @@ export class SpriteObject {
             }
         }
     }
+*/
 
     get_skins_preview() {
 

@@ -2,6 +2,7 @@ import { useSprite } from "../Context/Sprite.context";
 import { useBackground } from "../Context/Background";
 import { useDevice } from "../../../Context/is_mobile";
 import { usePageContent } from "../../../Context/page_content";
+import { useAnimation } from "../Context/AnimationContext";
 
 
 
@@ -13,28 +14,31 @@ export default function SexModal() {
     // const {sprites} = useSprite();
     const { sprites } = usePageContent();
     const sprite = sprites[0];
-
-    const btns_img =  sprites[0].poses_btn;
+    const {setIsAnimation,setAnimation} = useAnimation();
+    const btns_img = sprites[0].poses_btn;
 
     // const { dbBackground, setActualBackground, setDBBackground } = useBackground();
 
 
+    
 
 
     const create_sex_btns = () => {
         const btns = [];
         for (let i = 0; i < btns_img.length; i++) {
+            
             btns.push(
                 <td>
                     <button
                         onClick={() => {
-                            
+                            setIsAnimation(true)
+                            setAnimation(btns_img[i].id)
                         }}
                         style={{
                             backgroundSize: "100% 100%",
                             backgroundRepeat: "no-repeat",
                             backgroundPosition: "center",
-                            backgroundImage: `url("${btns_img[i]}")`
+                            backgroundImage: `url("${btns_img[i].img}")`
                         }}></button>
                 </td>
             )
