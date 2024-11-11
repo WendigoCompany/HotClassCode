@@ -16,7 +16,8 @@
     "start": "react-scripts start",
    "build": "cross-env REACT_APP_STADE=gh react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "b": "node ../React_Utils/upload_both.js -u=wendigo -c=\"%c%\" -pro= waifu_clasificated  -urepo=https://github.com/WendigoCompany/ -brepo=HotClass -crepo=HotClassCode "
   },
   "eslintConfig": {
     "extends": [
