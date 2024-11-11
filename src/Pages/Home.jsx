@@ -10,6 +10,10 @@ import Title from "../Components/Title/Title";
 
 import en_page from "../Lang/en/home.json"
 import es_page from "../Lang/es/home.json"
+
+import en_chat_model from "../Lang/en/chat.json"
+import es_chat_model from "../Lang/es/chat.json"
+
 import PageContentProviver from "../Context/page_content";
 import LangSelector from "../Components/LangSelector/LangSelector";
 import SearchBar from "../Components/Filter/Filter";
@@ -17,15 +21,18 @@ import { useState } from "react";
 import "../Styles/Home/manifiest.css";
 import Background from "../Components/Background";
 import Chat from "../Components/Chat/Chat";
+import GirlsProvider from "../Context/girls_context";
+
+
+
 
 const langs = {
-    es: es_page,
-    en: en_page
+    es: {...es_page, ...es_chat_model},
+    en: {...en_page, ...en_chat_model},
 };
 
 
 const girls = { en, es };
-
 
 
 
@@ -45,9 +52,9 @@ export default function Home() {
 
 
 
-    const getAllTags =()=>{
-        let final =[];
-        girls[lang].map(g =>final = final.concat(g.tags))
+    const getAllTags = () => {
+        let final = [];
+        girls[lang].map(g => final = final.concat(g.tags))
         return [...new Set(final)]
         // const fullTags = girls[lang].map(g => {
         //     return  {}
@@ -57,16 +64,14 @@ export default function Home() {
 
 
     return <>
-        <PageContentProviver lang={langs[lang]}>
+        <PageContentProviver pc={{...langs[lang]}} girls={girls[lang]}>
             <LangSelector />
             <Title />
-            <PageContentProviver girls={girls[lang]}>
-                <Chat />
-            </PageContentProviver>
+            <Chat />
             {/* <Filter /> */}
             <SearchBar items={getAllTags()} action={(filter) => {
-        
-                
+
+
                 const newGirls = girls[lang].filter(gl => gl.tags.indexOf(filter) != -1);
 
                 setGirlsData(newGirls)

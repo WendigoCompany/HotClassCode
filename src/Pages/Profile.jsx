@@ -13,49 +13,58 @@ import { useRMeta } from "../Router/MetaContext";
 import en_p from "../Lang/en/profile.json"
 import es_p from "../Lang/es/profile.json"
 
+import en_chat_model from "../Lang/en/chat.json"
+import es_chat_model from "../Lang/es/chat.json"
+
 import "../Styles/Profile/manifiest.css";
 import Description_Profile from "./Description";
 import { createContext, useContext, useState } from "react";
 import PreviewProfile from "./Preview";
 import Chat from "../Components/Chat/Chat";
 import PageContentProviver from "../Context/page_content";
+import GirlsProvider from "../Context/girls_context";
+import GirlProvider from "../Context/girl_context";
 
 const girls = { en, es };
 
 
 const pageContent = {
-    en: en_p,
-    es: es_p,
+    en: {...en_p, ...en_chat_model},
+    es: {...es_p, ...es_chat_model},
+
 };
 
 
-export const GirlContext = createContext();
-export const useGirl = () => useContext(GirlContext);
+
+// export const GirlContext = createContext();
+// export const useGirl = () => useContext(GirlContext);
 
 
 
-const GirlProvider = ({ children, ...params }) => {
-    return <GirlContext.Provider value={{ ...params }}>{children}</GirlContext.Provider>
-}
+// const GirlProvider = ({ children, ...params }) => {
+//     return <GirlContext.Provider value={{ ...params }}>{children}</GirlContext.Provider>
+// }
 
 
 
-export const GirlsContext = createContext();
-export const useGirls = () => useContext(GirlsContext);
+// export const GirlsContext = createContext();
+// export const useGirls = () => useContext(GirlsContext);
 
 
 
-const GirlsProvider = ({ children, ...params }) => {
-    return <GirlsContext.Provider value={{ ...params }}>{children}</GirlsContext.Provider>
-}
+// const GirlsProvider = ({ children, ...params }) => {
+//     return <GirlsContext.Provider value={{ ...params }}>{children}</GirlsContext.Provider>
+// }
 
 
 export default function Profile() {
     const { lang } = useLang();
     const { device } = useDevice();
     const [preview, setPreview] = useState(null);
-    const [girl, setGirl] = useState(null);
+    // const [girl, setGirl] = useState(null);
+    const [girls_data, setGirlsData] = useState(girls[lang]);
 
+    
     let girl_data
     /* eslint-disable */
     try {
@@ -74,12 +83,12 @@ export default function Profile() {
 
 
     return <>
-        <PageContentProviver pg={pageContent[lang]} >
-            <GirlsProvider girls={girls[lang]}>
+        <PageContentProviver pc={pageContent[lang]}  girls={girls[lang]} >
+            {/* <GirlsProvider girls={girls[lang]}> */}
                 {
                     (girl_data) ? (
                         <>
-                            <GirlProvider girl={girl} setGirl={setGirl}>
+                            {/* <GirlProvider girl={girl} setGirl={setGirl}> */}
                                 <LangSelector />
                                 <Chat />
 
@@ -97,14 +106,14 @@ export default function Profile() {
                                 }
 
 
-                            </GirlProvider>
+                            {/* </GirlProvider> */}
 
                         </>
 
 
                     ) : ("")
                 }
-            </GirlsProvider>
+            {/* </GirlsProvider> */}
         </PageContentProviver>
     </>
 }

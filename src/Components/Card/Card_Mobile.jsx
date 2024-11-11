@@ -6,7 +6,7 @@ import Relocate from "../../Utils/relocate";
 
 export default function Card_Mobile({ data , extra }) {
     
-    const { lang }= usePageContent()
+    const { pc }= usePageContent()
     const { gallery, main_img, title, prev , id } = data;
     const langPROV = useLang();
     return <div className="card-container br-sp2">
@@ -38,7 +38,7 @@ export default function Card_Mobile({ data , extra }) {
                                  Relocate(`/${langPROV.lang}/profile/${id}`)
                             // window.location.href =`profile/${id}` ;
                             // window.location.reload()
-                        }}>{lang.more}</button>
+                        }}>{pc.more}</button>
                         </div>
                     </td>
                 </tr>

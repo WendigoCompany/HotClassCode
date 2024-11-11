@@ -37,7 +37,7 @@
     /* Espacio entre los items */
     text-align: center;
     /* Centra el texto horizontalmente */
-    height: 95%;
+    height: 10vh !important;
     width: 100px;
     border: 1px solid red;
     border-radius: 50%;

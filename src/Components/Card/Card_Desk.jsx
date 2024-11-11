@@ -12,7 +12,7 @@ import Relocate from "../../Utils/relocate";
 export default function Card_Desk({ data, extra }) {
 
 
-    const { lang } = usePageContent()
+    const { pc } = usePageContent()
 
     const langPROV = useLang();
 
@@ -43,7 +43,7 @@ export default function Card_Desk({ data, extra }) {
                                 Relocate(`/${langPROV.lang}/profile/${id}`)
                                 // window.location.href =`profile/${id}` ;
                                 // window.location.reload()
-                            }}>{lang.more}</button>
+                            }}>{pc.more}</button>
                         </div>
                     </td>
                 </tr>

@@ -9,7 +9,7 @@ const Paginator = ({ totalPages, currentPage, setCurrentPage }) => {
     };
 //     prev
 // nxt
-const {lang} = usePageContent();
+const {pc} = usePageContent();
     const renderPageNumbers = () => {
         const pageNumbers = [];
         const maxVisiblePages = 3; // Puedes cambiar este valor según tus necesidades
@@ -71,7 +71,7 @@ const {lang} = usePageContent();
                 onClick={() => handlePageChange(currentPage)}
                 disabled={currentPage === 0}
             >
-                {lang.pag_prev}
+                {pc.pag_prev}
             </button>
 
             {renderPageNumbers()}
@@ -81,7 +81,7 @@ const {lang} = usePageContent();
                 className={(currentPage === totalPages - 1) ? ("") : ("pag-btn")}
                 disabled={currentPage === totalPages - 1}
             >
-                {lang.pag_nxt}
+                {pc.pag_nxt}
             </button>
         </div>
     );

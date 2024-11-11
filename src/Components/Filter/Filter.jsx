@@ -21,8 +21,7 @@ const SearchBar = ({ items, maxSuggestions = 5, action }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   method_setSuggestions = setSuggestions;
-  const {lang} = usePageContent();
-  console.log(lang);
+  const {pc} = usePageContent();
   
   const handleChange = (event) => {
     const value = event.target.value;
@@ -39,7 +38,7 @@ const SearchBar = ({ items, maxSuggestions = 5, action }) => {
       setSuggestions([]);
     }
   };
-console.log(Capitalizate(lang["search"]));
+console.log(Capitalizate(pc["search"]));
 
   const handleSuggestionClick = (suggestion) => {
     action(suggestion)
@@ -53,7 +52,7 @@ console.log(Capitalizate(lang["search"]));
       <input
         className='filter'
         type="text"
-        placeholder={Capitalizate(lang["search"]) + "..."}
+        placeholder={Capitalizate(pc["search"]) + "..."}
         value={searchTerm}
         onChange={handleChange}
       // style={{ padding: '8px',width: '100%',  }}
