@@ -4,8 +4,7 @@ import ChatBtnProfile from "../Components/Profile/ChatBtn";
 import RoomBtnProfile from "../Components/Profile/Room";
 
 export default function Description_Profile({ txt , gallery , setter , id}) {
-    console.log(txt);
-    
+
     useEffect(()=>{
         
         document.getElementById("de-p").innerHTML = txt;
