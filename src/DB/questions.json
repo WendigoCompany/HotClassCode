@@ -3,5 +3,27 @@
         "id": 0,
         "en": "How are you?",
         "es": "¿Como estas?"
+    },
+    {
+        "id": 1,
+        "en": "Can you tell me about you?",
+        "es": "¿Como estas?" 
+    },    
+    {
+        "id": 1,
+        "en": "What are your hobbies?",
+        "es": "¿Como estas?" 
+    },
+    {
+        "id": 1,
+        "en": "What is your favorite food?",
+        "es": "¿Como estas?" 
+    },
+    {
+        "id": 1,
+        "en": "Can you tell me more about your services?",
+        "es": "¿Como estas?" 
     }
 ]
+
+
